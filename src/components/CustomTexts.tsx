@@ -14,7 +14,7 @@ export const TypingText = ({
     variants={textContainer}
     className={
       textStyles +
-      " mt-[120px] text-base font-normal text-sky-800 dark:text-white"
+      " mt-[120px] text-base font-normal text-sky-950 dark:text-white"
     }
   >
     {Array.from(titles).map((letter, index) => (
