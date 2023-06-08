@@ -24,21 +24,24 @@ function About() {
             textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter lg:mb-12"
             titles="| About Me"
           ></TypingText>
-          <div className="flex flex-wrap relative z-10">
+          <div className="relative z-10 flex flex-wrap">
             <div
               data-aos="fade-up-right"
-              className="w-full self-center px-4 py-4 lg:w-1/2"
+              className="w-full self-center px-4 py-4 text-slate-900 dark:text-white lg:w-1/2"
             >
-              <h1 className="text-base font-semibold text-white py-2 lg:text-xl">
+              <h1 className="py-2 text-base  font-semibold lg:text-xl">
                 Hi everyone
                 <span className="mt-2 block text-2xl lg:text-4xl">I'M</span>
               </h1>
-              <h1 className="text-white font-bold text-4xl py-2 lg:text-5xl">
+              <h1 className="py-2 text-4xl font-bold lg:text-5xl">
                 ARDHAN NUR URFAN
               </h1>
-              <h2 className="text-white font-bold text-xl py-2 lg:text-3xl flex">
+              <h2 className="flex py-2 text-xl font-bold lg:text-3xl">
                 I Am Into
-                <span id="type" className="ml-2 text-teal-300">
+                <span
+                  id="type"
+                  className="ml-2 text-sky-500 dark:text-teal-300"
+                >
                   <Typewriter
                     options={{
                       strings: [
@@ -55,34 +58,34 @@ function About() {
                 </span>
               </h2>
 
-              <p className="py-2 text-slate-300">
+              <p className="py-2 text-slate-800 dark:text-slate-300">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. At unde
                 in ab minima illum nulla fugiat expedita culpa deleniti rerum.
               </p>
-              <div className="flex w-full py-4 justify-center">
+              <div className="flex w-full justify-center py-4">
                 <a
                   href=""
-                  className="text-base text-center font-semibold text-white py-3 w-2/3 rounded-full bg-gradient-to-r from-sky-500 to-pink-500 hover:opacity-50 transition duration-500 ease-in-out"
+                  className="w-2/3 rounded-full bg-gradient-to-r from-sky-500 to-pink-500 py-3 text-center text-base font-semibold text-white transition duration-500 ease-in-out hover:opacity-50"
                 >
                   My Resume
                 </a>
               </div>
-              <div className="flex w-full py-4 justify-center">
+              <div className="flex w-full justify-center py-4">
                 <a
                   href="https://github.com/ardhanurfan"
-                  className="w-9 h-9 rounded-full flex justify-center items-center border-2 border-slate-500 text-slate-500 mr-3 hover:text-white hover:border-white hover:bg-pink-500 lg:h-14 lg:w-14 lg:text-3xl lg:mr-6"
+                  className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white lg:mr-6 lg:h-14 lg:w-14 lg:text-3xl"
                 >
                   <AiFillGithub></AiFillGithub>
                 </a>
                 <a
                   href="https://instagram.com/ardhanurfan_"
-                  className="w-9 h-9 rounded-full flex justify-center items-center border-2 border-slate-500 text-slate-500 mr-3 hover:text-white hover:border-white hover:bg-pink-500 lg:h-14 lg:w-14 lg:text-3xl lg:mr-6"
+                  className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white lg:mr-6 lg:h-14 lg:w-14 lg:text-3xl"
                 >
                   <BsInstagram></BsInstagram>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/ardhanurfan/"
-                  className="w-9 h-9 rounded-full flex justify-center items-center border-2 border-slate-500 text-slate-500 hover:text-white hover:border-white hover:bg-pink-500 lg:h-14 lg:w-14 lg:text-3xl"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white lg:h-14 lg:w-14 lg:text-3xl"
                 >
                   <AiFillLinkedin></AiFillLinkedin>
                 </a>
@@ -95,7 +98,7 @@ function About() {
               <img
                 src="/avatar.png"
                 alt="Ardhan Nur Urfan"
-                className="max-w-full mx-auto lg:right-0"
+                className="mx-auto max-w-full lg:right-0"
               />
             </div>
           </div>

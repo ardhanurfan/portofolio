@@ -12,7 +12,10 @@ export const TypingText = ({
 }) => (
   <motion.p
     variants={textContainer}
-    className={textStyles + " font-normal text-base text-white mt-[120px]"}
+    className={
+      textStyles +
+      " mt-[120px] text-base font-normal text-pink-900 dark:text-white"
+    }
   >
     {Array.from(titles).map((letter, index) => (
       <motion.span variants={textVariant2} key={index}>
@@ -33,7 +36,7 @@ export const TitleText = ({
     variants={textContainer}
     className={
       textStyles +
-      " mt-2 font-bold text-[32px] text-white leading-[32px] md:leading-[64px] md:text-[64px] mb-4 md:py-8"
+      " mb-4 mt-2 text-[32px] font-bold leading-[32px] text-sky-900 dark:text-white md:py-8 md:text-[64px] md:leading-[64px]"
     }
   >
     {titles}

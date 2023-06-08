@@ -5,49 +5,49 @@ import { BsInstagram } from "react-icons/bs";
 
 const Footer = () => (
   <>
-    <footer className="relative bg-sky-700 bg-opacity-50 pt-8">
+    <footer className="relative bg-sky-700 pt-8 dark:bg-opacity-50">
       <div className="footer-gradient"></div>
       <div className="container">
         <div className="flex flex-wrap">
-          <div className="w-full px-4 mb-8 text-slate-300 font-medium md:w-1/3">
-            <h2 className="font-bold text-white text-2xl mb-5">ardhanurfan</h2>
-            <p className="font-bold text-xl mb-2">You can also contact me</p>
+          <div className="mb-8 w-full px-4 font-medium text-slate-300 md:w-1/3">
+            <h2 className="mb-5 text-2xl font-bold text-white">ardhanurfan</h2>
+            <p className="mb-2 text-xl font-bold">You can also contact me</p>
             <p>ardhanurfan@gmail.com</p>
             <p>Jl. Kebun Binatang No.37A</p>
             <p>Kota Bandung</p>
           </div>
-          <div className="w-auto px-4 mb-8 text-slate-300 font-medium">
-            <h3 className="font-bold text-xl mb-3">Social Media</h3>
+          <div className="mb-8 w-auto px-4 font-medium text-slate-300">
+            <h3 className="mb-3 text-xl font-bold">Social Media</h3>
             <a
               href="https://github.com/ardhanurfan"
-              className="flex items-center mb-2 group"
+              className="group mb-2 flex items-center"
             >
-              <div className="w-9 h-9 rounded-full flex justify-center items-center border-2 border-slate-500 text-slate-500 mr-3 group-hover:text-white group-hover:border-white group-hover:bg-pink-500">
+              <div className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-white group-hover:border-white group-hover:bg-pink-500 group-hover:text-white dark:border-slate-500 dark:text-slate-500">
                 <AiFillGithub></AiFillGithub>
               </div>
               <h3 className="group-hover:text-pink-500">ardhanurfan</h3>
             </a>
             <a
               href="https://instagram.com/ardhanurfan_"
-              className="flex items-center mb-2 group"
+              className="group mb-2 flex items-center"
             >
-              <div className="w-9 h-9 rounded-full flex justify-center items-center border-2 border-slate-500 text-slate-500 mr-3 group-hover:text-white group-hover:border-white group-hover:bg-pink-500">
+              <div className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-white group-hover:border-white group-hover:bg-pink-500 group-hover:text-white dark:border-slate-500 dark:text-slate-500">
                 <BsInstagram></BsInstagram>
               </div>
               <h3 className="group-hover:text-pink-500">@ardhanurfan_</h3>
             </a>
             <a
               href="https://www.linkedin.com/in/ardhanurfan/"
-              className="flex items-center mb-2 group"
+              className="group mb-2 flex items-center"
             >
-              <div className="w-9 h-9 rounded-full flex justify-center items-center border-2 border-slate-500 text-slate-500 mr-3 group-hover:text-white group-hover:border-white group-hover:bg-pink-500">
+              <div className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white text-white group-hover:border-white group-hover:bg-pink-500 group-hover:text-white dark:border-slate-500 dark:text-slate-500">
                 <AiFillLinkedin></AiFillLinkedin>
               </div>
               <h3 className="group-hover:text-pink-500">Ardhan Nur Urfan</h3>
             </a>
           </div>
         </div>
-        <div className="w-full py-2 border-t border-slate-800">
+        <div className="w-full border-t border-slate-800 py-2">
           <p className="text-center text-slate-300">Copyright @2023</p>
         </div>
       </div>

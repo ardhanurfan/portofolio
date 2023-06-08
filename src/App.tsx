@@ -33,7 +33,7 @@ function App() {
   }, []);
   return (
     <>
-      <div className="overflow-hidden bg-slate-900">
+      <div className="overflow-hidden bg-white dark:bg-slate-900">
         <Navbar />
         <Hero />
         <About />

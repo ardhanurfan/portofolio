@@ -111,35 +111,35 @@
 }
 
 .interWidth {
-  @apply lg:w-[80%] w-[100%];
+  @apply w-[100%] lg:w-[80%];
 }
 
 .paddings {
-  @apply sm:p-16 lg:p-8 px-6 py-12;
+  @apply px-6 py-12 sm:p-16 lg:p-8;
 }
 
 .yPaddings {
-  @apply lg:py-32 py-16;
+  @apply py-16 lg:py-32;
 }
 
 .xPaddings {
-  @apply sm:px-16 px-6;
+  @apply px-6 sm:px-16;
 }
 
 .topPaddings {
-  @apply sm:pt-16 lg:pt-8 pt-12;
+  @apply pt-12 sm:pt-16 lg:pt-8;
 }
 
 .bottomPaddings {
-  @apply sm:pb-16 lg:pb-8 pb-12;
+  @apply pb-12 sm:pb-16 lg:pb-8;
 }
 
 .flexCenter {
-  @apply flex justify-center items-center;
+  @apply flex items-center justify-center;
 }
 
 .flexStart {
-  @apply flex justify-start items-start;
+  @apply flex items-start justify-start;
 }
 
 .flexEnd {
@@ -148,7 +148,7 @@
 
 /* hero section */
 .heroHeading {
-  @apply font-bold lg:text-[100px] md:text-[80px] text-[48px] lg:leading-[100px] md:leading-[80px] leading-[64px] text-white;
+  @apply text-[48px] font-bold leading-[64px] text-sky-900 dark:text-white md:text-[80px] md:leading-[80px] lg:text-[100px] lg:leading-[100px];
 }
 
 .segitiga-kiri {

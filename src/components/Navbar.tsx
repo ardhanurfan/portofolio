@@ -49,7 +49,10 @@ function Navbar() {
           <div className="container">
             <div className="relative flex items-center justify-between">
               <div className="px-4">
-                <a href="#" className="block py-4 text-lg font-bold text-white">
+                <a
+                  href="#"
+                  className="block py-4 text-lg font-bold text-pink-500 dark:text-white"
+                >
                   Ardhan Nur Urfan
                 </a>
               </div>
@@ -68,7 +71,7 @@ function Navbar() {
 
                 <nav
                   id="nav-menu"
-                  className="absolute right-0 top-full hidden w-full max-w-[250px] rounded-md bg-slate-800 py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none"
+                  className="absolute right-0 top-full hidden w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
                 >
                   <ul className="block lg:flex">
                     <li className="group">
@@ -101,7 +104,7 @@ function Navbar() {
                         Contact
                       </a>
                     </li>
-                    <li className="group h-[40px] w-[80px]">
+                    <li className="flex items-center pl-8">
                       <ToggleDarkMode></ToggleDarkMode>
                     </li>
                   </ul>

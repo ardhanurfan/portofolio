@@ -1,27 +1,74 @@
+import { useEffect, useState } from "react";
 import "../style/toggleDarkMode.css";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-const ToggleDarkMode = () => (
-  <>
-    <div className="switch">
-      <input type="checkbox" name="toggle" />
-      <label htmlFor="toggle">
-        <i className="bulb">
-          <span className="bulb-center"></span>
-          <span className="filament-1"></span>
-          <span className="filament-2"></span>
-          <span className="reflections">
-            <span></span>
-          </span>
-          <span className="sparks">
-            <i className="spark1"></i>
-            <i className="spark2"></i>
-            <i className="spark3"></i>
-            <i className="spark4"></i>
-          </span>
-        </i>
-      </label>
-    </div>
-  </>
-);
+const ToggleDarkMode = () => {
+  const [isDark, setDark] = useState(true);
+
+  const changeMode = () => {
+    if (isDark) {
+      setDark(false);
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
+    } else {
+      setDark(true);
+      localStorage.setItem("theme", "dark");
+      document.documentElement.classList.add("dark");
+    }
+  };
+
+  useEffect(() => {
+    const localStorageMode = localStorage.getItem("theme");
+
+    if (localStorageMode === "dark") {
+      setDark(true);
+    } else {
+      setDark(false);
+    }
+
+    if (
+      localStorage.theme === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+    }
+  }, []);
+
+  return (
+    <>
+      <div className="mt-2 flex items-center lg:mt-0">
+        <span
+          className={
+            isDark ? "mr-2 text-slate-500" : "mr-2 text-yellow-500" + " text-lg"
+          }
+        >
+          <MdLightMode></MdLightMode>
+        </span>
+        <input
+          type="checkbox"
+          onChange={changeMode}
+          checked={isDark}
+          className="hidden"
+          id="dark-toggle"
+        />
+        <label htmlFor="dark-toggle">
+          <div className="flex h-5 w-9 cursor-pointer items-center rounded-full bg-slate-500 p-1">
+            <div className="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out"></div>
+          </div>
+        </label>
+        <span
+          className={
+            isDark ? "ml-2 text-sky-500" : "ml-2 text-slate-500" + " text-lg"
+          }
+        >
+          <MdDarkMode></MdDarkMode>
+        </span>
+      </div>
+    </>
+  );
+};
 
 export default ToggleDarkMode;

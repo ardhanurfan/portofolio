@@ -25,7 +25,7 @@ function Experience() {
           ></TitleText>
         </motion.div>
         <div data-aos="zoom-in" data-aos-delay="0" className="container">
-          <div className="absolute -z-10 h-full w-1 rounded-full bg-slate-300 lg:left-1/2"></div>
+          <div className="absolute -z-10 h-full w-1 rounded-full bg-sky-950 dark:bg-slate-300 lg:left-1/2"></div>
           <ExperienceCard
             title={"Involuntir"}
             position={"Mobile App Developer | Internship"}

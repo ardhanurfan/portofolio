@@ -6,7 +6,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 function Contact() {
   return (
     <>
-      <section className="relative py-6 container" id="contact">
+      <section className="container relative py-6" id="contact">
         <div className="contact-gradient" />
         <motion.div
           variants={staggerContainer(1, 0)}
@@ -27,19 +27,19 @@ function Contact() {
         <form className="mb-20">
           <div
             data-aos="fade-up"
-            className="w-full lg:w-2/3 mx-auto  bg-slate-500 rounded-lg bg-opacity-10 py-4"
+            className="mx-auto w-full rounded-lg bg-slate-800 py-4 dark:bg-slate-500 dark:bg-opacity-10 lg:w-2/3"
           >
-            <div className="container w-full px-4 mb-8">
+            <div className="container mb-8 w-full px-4">
               <label htmlFor="name" className="text-base font-bold text-white ">
                 Name
               </label>
               <input
                 type="text"
                 id="name"
-                className="w-full bg-slate-100 text-slate-900 p-3 rounded-md focus:outline-none focus:border-2 focus:ring-sky-500 focus:ring-1 focus:border-sky-500"
+                className="w-full rounded-md bg-slate-100 p-3 text-slate-900 focus:border-2 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
               />
             </div>
-            <div className="container w-full px-4 mb-8">
+            <div className="container mb-8 w-full px-4">
               <label
                 htmlFor="email"
                 className="text-base font-bold text-white "
@@ -49,10 +49,10 @@ function Contact() {
               <input
                 type="email"
                 id="email"
-                className="w-full bg-slate-100 text-slate-900 p-3 rounded-md focus:outline-none focus:border-2 focus:ring-sky-500 focus:ring-1 focus:border-sky-500"
+                className="w-full rounded-md bg-slate-100 p-3 text-slate-900 focus:border-2 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
               />
             </div>
-            <div className="container w-full px-4 mb-8">
+            <div className="container mb-8 w-full px-4">
               <label
                 htmlFor="messages"
                 className="text-base font-bold text-white "
@@ -61,13 +61,13 @@ function Contact() {
               </label>
               <textarea
                 id="messages"
-                className="w-full bg-slate-100
-              text-slate-900 p-3 rounded-md focus:outline-none focus:border-2
-              focus:ring-sky-500 focus:ring-1 focus:border-sky-500 h-32"
+                className="h-32 w-full
+              rounded-md bg-slate-100 p-3 text-slate-900 focus:border-2
+              focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
               ></textarea>
             </div>
             <div className="w-full  px-4">
-              <button className="flex items-center justify-center text-base font-semibold text-white py-3 w-full rounded-full bg-pink-500 hover:opacity-50 transition duration-500 ease-in-out">
+              <button className="flex w-full items-center justify-center rounded-full bg-pink-500 py-3 text-base font-semibold text-white transition duration-500 ease-in-out hover:opacity-50">
                 <div className="mr-2">Contact Me</div>
                 <FaTelegramPlane></FaTelegramPlane>
               </button>
