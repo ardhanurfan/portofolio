@@ -50,7 +50,7 @@ function Project() {
                 "https://play.google.com/store/apps/details?id=id.my.application.gens"
               }
               urlGithub={"https://github.com/ardhanurfan/Gen-S"}
-              tech={"Flutter, Laravel"}
+              tech={"Flutter, Laravel, MySQL"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-4 md:row-start-1">
@@ -99,19 +99,17 @@ function Project() {
               }
               urlView={""}
               urlGithub={"https://github.com/ardhanurfan/HMI-Armfield"}
-              tech={"React, Laravel"}
+              tech={"React, Laravel, MySQL"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-4 md:row-start-3">
             <ProjectCard
-              imageUrl={"/project/project.png"}
+              imageUrl={"/project/Regsosek.png"}
               title={"Regsosek"}
-              desc={
-                "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
-              }
+              desc={"Questionnaire application to collect population data."}
               urlView={""}
-              urlGithub={""}
-              tech={""}
+              urlGithub={"https://github.com/ardhanurfan/regsosek"}
+              tech={"Java, MySQL"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-1 md:row-start-4">

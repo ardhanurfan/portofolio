@@ -33,15 +33,15 @@ function Experience() {
             urutan={0}
           ></ExperienceCard>
           <ExperienceCard
-            title={"Bank Mandiri x Rakamin Academy"}
-            position={"Mobile App Developer | Project-Based Virtual Intern"}
-            year={"May 2023 - Jun 2023"}
-            urutan={1}
-          ></ExperienceCard>
-          <ExperienceCard
             title={"Ganesha Student Innovation Summit"}
             position={"Web Developer | IT Manager"}
             year={"Apr 2023 - Present"}
+            urutan={1}
+          ></ExperienceCard>
+          <ExperienceCard
+            title={"Bank Mandiri x Rakamin Academy"}
+            position={"Mobile App Developer | Project-Based Virtual Intern"}
+            year={"May 2023 - Jun 2023"}
             urutan={2}
           ></ExperienceCard>
           <ExperienceCard

@@ -51,9 +51,14 @@ function Navbar() {
               <div className="px-4">
                 <a
                   href="#"
-                  className="block py-4 text-lg font-bold text-pink-500 dark:text-white"
+                  className="flex items-center py-4 text-xl font-extrabold text-pink-500 dark:text-white lg:text-4xl"
                 >
-                  Ardhan Nur Urfan
+                  <img
+                    src="/logo.png"
+                    alt="logo"
+                    className="mr-2 h-6 lg:mr-4 lg:h-10"
+                  />
+                  <h1>ard.studios</h1>
                 </a>
               </div>
               <div className="flex items-center px-4">
