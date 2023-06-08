@@ -40,7 +40,7 @@ function Experience() {
           ></ExperienceCard>
           <ExperienceCard
             title={"Ganesha Student Innovation Summit"}
-            position={"Web Developer | Manager IT"}
+            position={"Web Developer | IT Manager"}
             year={"Apr 2023 - Present"}
             urutan={2}
           ></ExperienceCard>

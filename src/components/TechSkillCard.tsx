@@ -22,19 +22,19 @@ export const TechSkillCard = ({
     <Tilt options={defaultOptions}>
       <div
         data-aos="zoom-in"
-        className="w-auto aspect-[4/3] bg-slate-700 bg-opacity-80 rounded-lg overflow-hidden relative group hover:bg-slate-800 transition-all duration-300 ease-in-out"
+        className="group relative aspect-[4/3] w-auto overflow-hidden rounded-lg bg-slate-100 bg-opacity-80 transition-all duration-300 ease-in-out hover:bg-slate-800 dark:bg-slate-700 dark:bg-opacity-80"
       >
         <img
           src={logoUrl}
           alt="TechStack"
-          className="w-full h-full object-cover object-center absolute group-hover:grayscale-0 group-hover:blur-2xl transition-all duration-300 ease-in-out"
+          className="absolute h-full w-full object-cover object-center transition-all duration-300 ease-in-out group-hover:blur-2xl group-hover:grayscale-0"
         />
         <img
           src={logoUrl}
           alt="TechStack"
-          className="image-tilt w-auto h-10 absolute top-2 left-1/2 bottom-0 -translate-x-1/2 opacity-0 object-cover object-center z-10 group-hover:opacity-100 md:h-16 md:top-4 lg:h-20 transition-all duration-300 ease-in-out"
+          className="image-tilt absolute bottom-0 left-1/2 top-2 z-10 h-10 w-auto -translate-x-1/2 object-cover object-center opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 md:top-4 md:h-16 lg:h-20"
         />
-        <h1 className="absolute bottom-2 opacity-0 text-white w-full text-center font-medium text-sm md:text-lg md:bottom-4 lg:text-xl group-hover:opacity-100 transition-all duration-300 ease-in-out">
+        <h1 className="absolute bottom-2 w-full text-center text-sm font-medium text-white opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100 md:bottom-4 md:text-lg lg:text-xl">
           {nama}
         </h1>
       </div>

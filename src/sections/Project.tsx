@@ -80,32 +80,32 @@ function Project() {
           </div>
           <div className="md:col-start-3 md:row-start-2">
             <ProjectCard
-              imageUrl={"/project/project.png"}
-              title={"MindMe"}
+              imageUrl={"/project/NewsApp.png"}
+              title={"NewsApp"}
               desc={
-                "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
+                "News mobile application. This application uses the API from newsapi.org."
               }
               urlView={""}
-              urlGithub={""}
-              tech={""}
+              urlGithub={"https://github.com/ardhanurfan/NewsApp"}
+              tech={"Kotlin"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-2 md:row-start-3">
             <ProjectCard
-              imageUrl={"/project/project.png"}
-              title={"MindMe"}
+              imageUrl={"/project/ArmField.png"}
+              title={"Armfield"}
               desc={
-                "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
+                "Website of the Miniplant Monitoring System. Displays a dashboard of the testing database."
               }
               urlView={""}
-              urlGithub={""}
-              tech={""}
+              urlGithub={"https://github.com/ardhanurfan/HMI-Armfield"}
+              tech={"React, Laravel"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-4 md:row-start-3">
             <ProjectCard
               imageUrl={"/project/project.png"}
-              title={"MindMe"}
+              title={"Regsosek"}
               desc={
                 "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
               }
@@ -116,38 +116,42 @@ function Project() {
           </div>
           <div className="md:col-start-1 md:row-start-4">
             <ProjectCard
-              imageUrl={"/project/project.png"}
-              title={"MindMe"}
+              imageUrl={"/project/Moviez.png"}
+              title={"Moviez"}
               desc={
-                "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
+                "User Interface code of movies review mobile application. Design by Shayna Kit."
               }
               urlView={""}
-              urlGithub={""}
-              tech={""}
+              urlGithub={"https://github.com/ardhanurfan/moviez-streaming"}
+              tech={"Flutter"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-3 md:row-start-4">
             <ProjectCard
-              imageUrl={"/project/project.png"}
-              title={"MindMe"}
+              imageUrl={"/project/AirTicket.png"}
+              title={"AirTicket"}
               desc={
-                "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
+                "Mobile application for ticket booking. Designed by BuildWithAngga."
               }
-              urlView={""}
-              urlGithub={""}
-              tech={""}
+              urlView={
+                "https://drive.google.com/file/d/17z1-7guvmIbVaolvDb1oV4HWGTZ1ToW6/view?usp=sharing"
+              }
+              urlGithub={"https://github.com/ardhanurfan/Airplane-Ticket"}
+              tech={"Flutter, Firebase"}
             ></ProjectCard>
           </div>
           <div className="md:col-start-4 md:row-start-4">
             <ProjectCard
-              imageUrl={"/project/project.png"}
-              title={"MindMe"}
+              imageUrl={"/project/CIS.png"}
+              title={"Identity Scanners"}
               desc={
-                "Aplikasi mobile mengenai kesehatan mental dengan fitur sosial di dalamnya"
+                "Integration application for electronic identity with NFC to remove physic card's copy"
               }
               urlView={""}
-              urlGithub={""}
-              tech={""}
+              urlGithub={
+                "https://github.com/ardhanurfan/front-end-cis-milestone"
+              }
+              tech={"Flutter"}
             ></ProjectCard>
           </div>
         </div>

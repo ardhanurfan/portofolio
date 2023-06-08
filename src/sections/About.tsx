@@ -7,11 +7,12 @@ import Typewriter from "typewriter-effect";
 import { BsInstagram } from "react-icons/bs";
 import { AiFillGithub } from "react-icons/ai";
 import { AiFillLinkedin } from "react-icons/ai";
+import { Tilt } from "react-tilt";
 
 function About() {
   return (
     <>
-      <section className="relative py-6 lg:mb-40" id="about">
+      <section className="relative py-6" id="about">
         <div className="gradient-02 opacity-60 lg:opacity-50" />
         <motion.div
           variants={staggerContainer(1, 0)}
@@ -21,7 +22,7 @@ function About() {
           className="container mx-auto flex-col"
         >
           <TypingText
-            textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter lg:mb-12"
+            textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter"
             titles="| About Me"
           ></TypingText>
           <div className="relative z-10 flex flex-wrap">
@@ -58,9 +59,13 @@ function About() {
                 </span>
               </h2>
 
-              <p className="py-2 text-slate-800 dark:text-slate-300">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. At unde
-                in ab minima illum nulla fugiat expedita culpa deleniti rerum.
+              <p className="py-2 text-justify text-slate-800 dark:text-slate-300">
+                I am an undergraduate student in Information System and
+                Technology at Bandung Institute of Technology (ITB). I have a
+                keen interest in technology and programming, specifically in
+                software development. With proficiency in multiple programming
+                languages and experience in software development, I am motivated
+                to contribute to the tech industry and make a positive impact.
               </p>
               <div className="flex w-full justify-center py-4">
                 <a
@@ -73,19 +78,19 @@ function About() {
               <div className="flex w-full justify-center py-4">
                 <a
                   href="https://github.com/ardhanurfan"
-                  className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white lg:mr-6 lg:h-14 lg:w-14 lg:text-3xl"
+                  className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white md:h-14 md:w-14 md:text-3xl lg:mr-6"
                 >
                   <AiFillGithub></AiFillGithub>
                 </a>
                 <a
                   href="https://instagram.com/ardhanurfan_"
-                  className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white lg:mr-6 lg:h-14 lg:w-14 lg:text-3xl"
+                  className="mr-3 flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white md:h-14 md:w-14 md:text-3xl lg:mr-6"
                 >
                   <BsInstagram></BsInstagram>
                 </a>
                 <a
                   href="https://www.linkedin.com/in/ardhanurfan/"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white lg:h-14 lg:w-14 lg:text-3xl"
+                  className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-slate-500 text-slate-500 hover:border-white hover:bg-pink-500 hover:text-white md:h-14 md:w-14 md:text-3xl"
                 >
                   <AiFillLinkedin></AiFillLinkedin>
                 </a>
@@ -93,13 +98,15 @@ function About() {
             </div>
             <div
               data-aos="fade-up-left"
-              className="w-full self-end px-4 py-4 lg:w-1/2"
+              className="w-full self-end p-16 md:p-36 lg:w-1/2 lg:p-28"
             >
-              <img
-                src="/avatar.png"
-                alt="Ardhan Nur Urfan"
-                className="mx-auto max-w-full lg:right-0"
-              />
+              <Tilt>
+                <img
+                  src="/avatar.png"
+                  alt="Ardhan Nur Urfan"
+                  className="mx-auto max-w-full lg:right-0"
+                />
+              </Tilt>
             </div>
           </div>
         </motion.div>

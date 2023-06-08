@@ -49,7 +49,7 @@ function App() {
           id="to-top"
           className={
             toTopButton +
-            " fixed bottom-4 right-4 z-[9999] m-auto h-14 w-14 items-center justify-center rounded-full bg-pink-500 text-3xl text-white hover:animate-pulse"
+            " fixed bottom-4 right-4 z-[9999] m-auto h-10 w-10 items-center justify-center rounded-full bg-pink-500 text-xl text-white hover:animate-pulse md:h-14 md:w-14 md:text-3xl"
           }
         >
           <AiOutlineArrowUp></AiOutlineArrowUp>
