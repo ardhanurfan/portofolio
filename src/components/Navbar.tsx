@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 import ToggleDarkMode from "./ToggleDarkMode";
 
 function Navbar() {
-  const hamburger = () => {
-    document.getElementById("hamburger")?.classList.toggle("hamburger-active");
-    document.getElementById("nav-menu")?.classList.toggle("hidden");
-  };
-
   const [stickyClass, setStickyClass] = useState("absolute");
+  const [openNav, setOpenNav] = useState(false);
+
+  const hamburger = () => {
+    setOpenNav(!openNav);
+  };
 
   const stickNavbar = () => {
     const header = document.querySelector("header");
@@ -65,7 +65,10 @@ function Navbar() {
                   id="hamburger"
                   name="hamburger"
                   type="button"
-                  className="absolute right-4 block lg:hidden"
+                  className={
+                    (openNav ? "hamburger-active " : "") +
+                    "absolute right-4 block lg:hidden"
+                  }
                 >
                   <span className="hamburger-line origin-top-left "></span>
                   <span className="hamburger-line"></span>
@@ -74,9 +77,12 @@ function Navbar() {
 
                 <nav
                   id="nav-menu"
-                  className="absolute right-0 top-full hidden w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
+                  className={
+                    (openNav ? "" : "hidden ") +
+                    "absolute right-0 top-full w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
+                  }
                 >
-                  <ul className="block lg:flex">
+                  <ul onClick={() => hamburger()} className="block lg:flex">
                     <li className="group">
                       <a href="#" className="nav-items">
                         Home
