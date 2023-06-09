@@ -1,18 +1,11 @@
 import { motion } from "framer-motion";
 import { textContainer, textVariant2 } from "../utils/motion";
 
-export const TypingText = ({
-  titles,
-  textStyles,
-}: {
-  textStyles: string;
-  titles: string;
-}) => (
+export const TypingText = ({ titles }: { titles: string }) => (
   <motion.p
     variants={textContainer}
     className={
-      textStyles +
-      " mt-[120px] text-base font-normal text-sky-950 dark:text-white"
+      "mt-[120px] flex items-center justify-center text-base font-normal text-sky-950 dark:text-white md:text-xl lg:text-2xl"
     }
   >
     {Array.from(titles).map((letter, index) => (
@@ -20,6 +13,7 @@ export const TypingText = ({
         {letter === " " ? "\u00A0" : letter}
       </motion.span>
     ))}
+    {/* {titles} */}
   </motion.p>
 );
 

@@ -11,7 +11,7 @@
 }
 
 .gradient-01 {
-  background-image: linear-gradient(
+  background: linear-gradient(
     270deg,
     hsl(295deg 76% 51%) 0%,
     hsl(284deg 70% 73%) 26%,
@@ -21,16 +21,10 @@
     hsl(221deg 73% 70%) 74%,
     hsl(220deg 76% 51%) 100%
   );
-  filter: blur(125px);
-}
+  filter: blur(100px);
 
-.hero-gradient {
-  background: linear-gradient(
-    97.86deg,
-    #a509ff 0%,
-    #34acc7 53.65%,
-    #a134c7 100%
-  );
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 .gradient-02 {
@@ -42,14 +36,9 @@
 
   background: #7aebfb;
   filter: blur(190px);
-}
 
-.glassmorphism {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 .gradient-03 {
@@ -62,6 +51,9 @@
   background: rgba(149, 66, 232, 0.35);
   filter: blur(175px);
   transform: rotate(-114.2deg);
+
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 .gradient-04 {
@@ -74,6 +66,9 @@
   background: rgba(45, 72, 152, 0.75);
   filter: blur(200px);
   transform: rotate(-53.13deg);
+
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 .gradient-05 {
@@ -86,6 +81,9 @@
   background: rgba(149, 66, 232, 0.35);
   filter: blur(200px);
   transform: rotate(-53.13deg);
+
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 .contact-gradient {
@@ -97,6 +95,9 @@
 
   background: #8d39a3;
   filter: blur(175px);
+
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 .footer-gradient {
@@ -108,42 +109,9 @@
 
   background: #65c4fa;
   filter: blur(150px);
-}
 
-.interWidth {
-  @apply w-[100%] lg:w-[80%];
-}
-
-.paddings {
-  @apply px-6 py-12 sm:p-16 lg:p-8;
-}
-
-.yPaddings {
-  @apply py-16 lg:py-32;
-}
-
-.xPaddings {
-  @apply px-6 sm:px-16;
-}
-
-.topPaddings {
-  @apply pt-12 sm:pt-16 lg:pt-8;
-}
-
-.bottomPaddings {
-  @apply pb-12 sm:pb-16 lg:pb-8;
-}
-
-.flexCenter {
-  @apply flex items-center justify-center;
-}
-
-.flexStart {
-  @apply flex items-start justify-start;
-}
-
-.flexEnd {
-  @apply flex justify-end;
+  /* biar aman di mobile */
+  will-change: transform;
 }
 
 /* hero section */

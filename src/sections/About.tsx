@@ -19,10 +19,7 @@ function About() {
           viewport={{ once: false, amount: 0.25 }}
           className="container mx-auto flex-col"
         >
-          <TypingText
-            textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter"
-            titles="| About Me"
-          ></TypingText>
+          <TypingText titles="| About Me"></TypingText>
           <div className="relative z-10 flex flex-wrap">
             <div
               data-aos="fade-up-right"

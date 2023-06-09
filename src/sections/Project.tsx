@@ -15,10 +15,7 @@ function Project() {
           viewport={{ once: false, amount: 0.25 }}
           className="mx-auto flex-col"
         >
-          <TypingText
-            textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter"
-            titles="| Projects"
-          ></TypingText>
+          <TypingText titles="| Projects"></TypingText>
           <TitleText
             titles="Last My Works"
             textStyles={"text-center"}

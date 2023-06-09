@@ -6,7 +6,7 @@ import { TechSkillCard } from "../components/TechSkillCard";
 function Skill() {
   return (
     <>
-      <section className="relative py-6 container lg:mb-40" id="skills">
+      <section className="container relative py-6 lg:mb-40" id="skills">
         <div className="gradient-03" />
         <motion.div
           variants={staggerContainer(1, 0)}
@@ -15,16 +15,13 @@ function Skill() {
           viewport={{ once: false, amount: 0.25 }}
           className="mx-auto flex-col"
         >
-          <TypingText
-            textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter"
-            titles="| Professional Skills"
-          ></TypingText>
+          <TypingText titles="| Professional Skills"></TypingText>
           <TitleText
             titles="Skills Set In Technology"
             textStyles={"text-center"}
           ></TitleText>
         </motion.div>
-        <div className="container grid grid-cols-3 gap-3 md:gap-4 md:grid-cols-4 lg:grid-cols-6">
+        <div className="container grid grid-cols-3 gap-3 md:grid-cols-4 md:gap-4 lg:grid-cols-6">
           <TechSkillCard
             logoUrl={"/tech/flutter.svg"}
             nama={"Flutter"}

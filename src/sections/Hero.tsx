@@ -13,7 +13,7 @@ function Hero() {
   const scaleCloud = useTransform(scrollYProgress, [0, 1], ["75%", "110%"]);
   return (
     <>
-      <section className="yPaddings" ref={containerRef}>
+      <section className="py-16 lg:py-32" ref={containerRef}>
         <motion.div
           variants={staggerContainer(1, 0)}
           initial="hidden"

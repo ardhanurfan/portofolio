@@ -15,10 +15,7 @@ function Experience() {
           viewport={{ once: false, amount: 0.25 }}
           className="mx-auto flex-col"
         >
-          <TypingText
-            textStyles="font-light mt-8 text-base md:text-xl lg:text-2xl text-slate-300 flexCenter"
-            titles="| Experiences"
-          ></TypingText>
+          <TypingText titles="| Experiences"></TypingText>
           <TitleText
             titles="Experiences About Technology"
             textStyles={"text-center"}
