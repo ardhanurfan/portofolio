@@ -12,7 +12,6 @@
   "dependencies": {
     "@emailjs/browser": "^3.11.0",
     "@react-spring/parallax": "^9.7.2",
-    "@react-spring/web": "^9.7.2",
     "aos": "^2.3.4",
     "framer-motion": "^10.12.16",
     "prettier": "^2.8.8",
@@ -21,9 +20,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "react-tilt": "^1.0.2",
-    "react-vanilla-tilt": "^1.0.0",
-    "typewriter-effect": "^2.19.0",
-    "vanilla-tilt": "^1.8.0"
+    "typewriter-effect": "^2.19.0"
   },
   "devDependencies": {
     "@types/aos": "^3.0.4",

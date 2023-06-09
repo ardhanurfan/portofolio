@@ -32,8 +32,10 @@ const ToggleDarkMode = () => {
         window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       document.documentElement.classList.add("dark");
+      setDark(true);
     } else {
       document.documentElement.classList.remove("dark");
+      setDark(false);
     }
   }, []);
 
@@ -42,7 +44,9 @@ const ToggleDarkMode = () => {
       <div className="mt-2 flex items-center lg:mt-0">
         <span
           className={
-            isDark ? "mr-2 text-slate-500" : "mr-2 text-yellow-500" + " text-lg"
+            isDark
+              ? "mr-2 text-lg text-slate-500"
+              : "mr-2 text-lg text-yellow-500"
           }
         >
           <MdLightMode></MdLightMode>
@@ -61,7 +65,7 @@ const ToggleDarkMode = () => {
         </label>
         <span
           className={
-            isDark ? "ml-2 text-sky-500" : "ml-2 text-slate-500" + " text-lg"
+            isDark ? "ml-2 text-lg text-sky-500" : "ml-2 text-lg text-slate-500"
           }
         >
           <MdDarkMode></MdDarkMode>
