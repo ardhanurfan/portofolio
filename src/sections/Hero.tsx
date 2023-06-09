@@ -42,7 +42,7 @@ function Hero() {
               }}
             >
               <img
-                src="/big.png"
+                src="/big.svg"
                 alt="cover"
                 className="absolute z-10 mt-32 h-[350px] w-full object-cover object-top lg:mt-0 lg:h-[500px]"
               />
@@ -59,7 +59,7 @@ function Hero() {
               }}
             >
               <img
-                src="/cloud.png"
+                src="/cloud.svg"
                 alt="cover"
                 className="relative z-20 mt-72 h-[200px] w-full object-cover object-top md:mt-0 md:h-[500px] lg:h-full lg:scale-[1.25]"
               />
