@@ -1,5 +1,3 @@
-"use-client";
-
 import { motion } from "framer-motion";
 import { navVariants } from "../utils/motion";
 import "../style/navbar.css";

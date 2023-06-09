@@ -1,5 +1,3 @@
-"use-client";
-
 import { motion, useScroll, useTransform } from "framer-motion";
 import { staggerContainer, textVariant } from "../utils/motion";
 import { useRef } from "react";

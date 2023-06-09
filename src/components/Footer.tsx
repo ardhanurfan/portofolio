@@ -1,5 +1,3 @@
-"use client";
-
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { BsInstagram } from "react-icons/bs";
 
