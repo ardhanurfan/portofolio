@@ -46,7 +46,7 @@ const Footer = () => (
           </div>
         </div>
         <div className="w-full border-t border-slate-800 py-2">
-          <p className="text-center text-slate-300">Copyright @2023</p>
+          <p className="text-center text-slate-300">Copyright © 2023</p>
         </div>
       </div>
     </footer>

@@ -1,8 +1,9 @@
 import { motion } from "framer-motion";
 import { navVariants } from "../utils/motion";
 import "../style/navbar.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ToggleDarkMode from "./ToggleDarkMode";
+import { useEventListener } from "usehooks-ts";
 
 function Navbar() {
   const [stickyClass, setStickyClass] = useState("absolute");
@@ -28,6 +29,19 @@ function Navbar() {
       window.removeEventListener("scroll", stickNavbar);
     };
   }, []);
+
+  const documentRef = useRef<Document>(document);
+  const onClickHamburger = (event: Event) => {
+    let cekHamburger = true;
+    const doc = document.getElementsByClassName("hamburger");
+    for (let index = 0; index < doc.length; index++) {
+      cekHamburger = cekHamburger && event.target != doc[index];
+    }
+    if (cekHamburger) {
+      setOpenNav(false);
+    }
+  };
+  useEventListener("click", onClickHamburger, documentRef);
 
   return (
     <>
@@ -67,12 +81,12 @@ function Navbar() {
                   type="button"
                   className={
                     (openNav ? "hamburger-active " : "") +
-                    "absolute right-4 block lg:hidden"
+                    "hamburger absolute right-4 block lg:hidden"
                   }
                 >
-                  <span className="hamburger-line origin-top-left "></span>
-                  <span className="hamburger-line"></span>
-                  <span className="hamburger-line origin-bottom-left"></span>
+                  <span className="hamburger-line hamburger origin-top-left"></span>
+                  <span className="hamburger-line hamburger"></span>
+                  <span className="hamburger-line hamburger origin-bottom-left"></span>
                 </button>
 
                 <nav

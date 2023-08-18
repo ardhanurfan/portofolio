@@ -43,9 +43,7 @@ function Project() {
               desc={
                 "Audio App for islamic story with Image, Playlist, Galleries. Available on App Store, Playstore"
               }
-              urlView={
-                "https://play.google.com/store/apps/details?id=id.my.application.gens"
-              }
+              urlView={"https://apps.apple.com/id/app/gen-s/id6449827681?l=id"}
               urlGithub={"https://github.com/ardhanurfan/Gen-S"}
               tech={"Flutter, Laravel, MySQL"}
             ></ProjectCard>
