@@ -133,7 +133,7 @@ function Project() {
               tech={"Flutter, Firebase"}
             ></ProjectCard>
           </div>
-          <div className="md:col-start-4 md:row-start-4">
+          <div className="md:col-start-3 md:row-start-4">
             <ProjectCard
               imageUrl={"/project/CIS.png"}
               title={"Identity Scanners"}
@@ -145,6 +145,18 @@ function Project() {
                 "https://github.com/ardhanurfan/front-end-cis-milestone"
               }
               tech={"Flutter"}
+            ></ProjectCard>
+          </div>
+          <div className="md:col-start-2 md:row-start-5">
+            <ProjectCard
+              imageUrl={"/project/GSIS.jpg"}
+              title={"Ganesha Summit 2023"}
+              desc={
+                "Website for event management of Ganesha Student Innovation Summit 2023"
+              }
+              urlView={"https://ganeshasummit.com"}
+              urlGithub={"https://github.com/ardhanurfan/frontend-gsis"}
+              tech={"React, Laravel"}
             ></ProjectCard>
           </div>
         </div>
