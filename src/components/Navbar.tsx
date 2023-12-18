@@ -63,12 +63,12 @@ function Navbar() {
               <div className="px-4">
                 <a
                   href="#"
-                  className="flex items-center py-4 text-xl font-extrabold text-pink-500 dark:text-white lg:text-4xl"
+                  className="flex items-center py-4 text-xl font-extrabold text-pink-500 dark:text-white xl:text-4xl"
                 >
                   <img
                     src="/logo.png"
                     alt="logo"
-                    className="mr-2 h-6 lg:mr-4 lg:h-10"
+                    className="mr-2 h-6 xl:mr-4 xl:h-10"
                   />
                   <h1>ard.studios</h1>
                 </a>
@@ -81,7 +81,7 @@ function Navbar() {
                   type="button"
                   className={
                     (openNav ? "hamburger-active " : "") +
-                    "hamburger absolute right-4 block lg:hidden"
+                    "hamburger absolute right-4 block xl:hidden"
                   }
                 >
                   <span className="hamburger-line hamburger origin-top-left"></span>
@@ -93,10 +93,10 @@ function Navbar() {
                   id="nav-menu"
                   className={
                     (openNav ? "" : "hidden ") +
-                    "absolute right-0 top-full w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none lg:dark:bg-transparent"
+                    "absolute right-0 top-full w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 xl:static xl:block xl:max-w-full xl:rounded-none xl:bg-transparent xl:shadow-none xl:dark:bg-transparent"
                   }
                 >
-                  <ul onClick={() => hamburger()} className="block lg:flex">
+                  <ul onClick={() => hamburger()} className="block xl:flex">
                     <li className="group">
                       <a href="#" className="nav-items">
                         Home

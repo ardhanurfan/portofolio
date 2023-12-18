@@ -64,7 +64,7 @@ function About() {
               </p>
               <div className="flex w-full justify-center py-4">
                 <a
-                  href="https://drive.google.com/file/d/1iV4MVFcyDTsKH6S2J9CD7lhAMu-445kR/view?usp=sharing"
+                  href="https://drive.google.com/file/d/12KOBWQSUFsD0pXpB5_Ijus8cKn8-0o3T/view?usp=sharing"
                   className="w-2/3 rounded-full bg-gradient-to-r from-sky-500 to-pink-500 py-3 text-center text-base font-semibold text-white transition duration-500 ease-in-out hover:opacity-50"
                 >
                   My Resume
