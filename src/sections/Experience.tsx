@@ -26,19 +26,19 @@ function Experience() {
           <ExperienceCard
             title={"PLN Icon Plus"}
             position={"Software Engineer | Internship"}
-            year={"June 2023 - Present"}
+            year={"Jun 2023 - Dec 2023"}
             urutan={0}
           ></ExperienceCard>
           <ExperienceCard
             title={"Involuntir"}
             position={"Mobile App Developer | Internship"}
-            year={"May 2023 - Present"}
+            year={"Jun 2023 - Sep 2023"}
             urutan={1}
           ></ExperienceCard>
           <ExperienceCard
             title={"Ganesha Student Innovation Summit"}
             position={"Web Developer | IT Manager"}
-            year={"Apr 2023 - Present"}
+            year={"Apr 2023 - Oct 2023"}
             urutan={2}
           ></ExperienceCard>
           <ExperienceCard
