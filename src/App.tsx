@@ -1,6 +1,14 @@
 import { useEffect, useState } from "react";
 import { Footer, Navbar } from "./components";
-import { About, Skill, Experience, Hero, Project, Contact } from "./sections";
+import {
+  About,
+  Skill,
+  Experience,
+  Hero,
+  Project,
+  Contact,
+  Achievement,
+} from "./sections";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { AiOutlineArrowUp } from "react-icons/ai";
@@ -40,10 +48,11 @@ function App() {
         <Skill />
         <Experience />
         <Project />
+        <Achievement />
         <Contact />
         <Footer />
 
-        {/* back to to */}
+        {/* back to top */}
         <a
           href="#"
           id="to-top"

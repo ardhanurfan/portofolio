@@ -98,11 +98,6 @@ function Navbar() {
                 >
                   <ul onClick={() => hamburger()} className="block xl:flex">
                     <li className="group">
-                      <a href="#" className="nav-items">
-                        Home
-                      </a>
-                    </li>
-                    <li className="group">
                       <a href="#about" className="nav-items">
                         About
                       </a>
@@ -120,6 +115,11 @@ function Navbar() {
                     <li className="group">
                       <a href="#projects" className="nav-items">
                         Projects
+                      </a>
+                    </li>
+                    <li className="group">
+                      <a href="#achievements" className="nav-items">
+                        Achievements
                       </a>
                     </li>
                     <li className="group">
