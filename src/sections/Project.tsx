@@ -23,13 +23,57 @@ function Project() {
         </motion.div>
         <div className="container grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
           <ProjectCard
+            imageUrl={"/project/Kiddy.png"}
+            title={"Kiddy"}
+            desc={
+              "Kiddy a real-time baby and toddlers monitoring system with AI machine learning and IoT driven solutions, living your best parents life."
+            }
+            urlGithub={"https://github.com/orgs/SiKAT-FindIT/repositories"}
+            tech={"Flutter, Firebase, TensorFlow Lite, Websocket, NodeJS"}
+            urlView={
+              "https://drive.google.com/file/d/1KRDr1wwKejeJXGlI_VPNDrc4_1aL7u0z/view"
+            }
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/Travee.png"}
+            title={"Travee"}
+            desc={
+              "The innovative mobile apps that connects helpers or workers with their employers while allowing seamless job monitoring."
+            }
+            urlGithub={"https://github.com/ardhanurfan/travee"}
+            tech={"React Native, Firebase"}
+            urlView={""}
+          ></ProjectCard>
+          <ProjectCard
             imageUrl={"/project/MediGuard.png"}
             title={"MediGuard"}
             desc={
               "Website, Mobile Apps, IoT for pharmaceautical logistics monitoring"
             }
             urlGithub={"https://github.com/ardhanurfan/MediGuard-web"}
-            tech={"Flutter, NodeJS, React, WebSockets, MQTT"}
+            tech={"Flutter, NodeJS, React, WebSockets, MQTT, ESP32"}
+            urlView={
+              "https://drive.google.com/file/d/1CQkhwUdCbhxuCJ99sjeLs7n6yPRZ4OtA/view"
+            }
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/Carporteuro.png"}
+            title={"Carporteuro"}
+            desc={
+              "Website for managing and booking workshops. There are user account management, scheduling, and history services for users."
+            }
+            urlGithub={""}
+            tech={"NextJS, Golang"}
+            urlView={"https://carporteuro.com"}
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/Elweha.png"}
+            title={"Elweha"}
+            desc={
+              "Financial accounting information system website at PT Elweha Mitra Teknologi. This website provides cash flow, tax, and payroll records for employees."
+            }
+            urlGithub={"https://github.com/ardhanurfan/Elweha"}
+            tech={"React, Laravel, MySQL, Docker"}
             urlView={""}
           ></ProjectCard>
           <ProjectCard
@@ -75,6 +119,46 @@ function Project() {
             }
             urlGithub={"https://github.com/ardhanurfan/Moodly"}
             tech={"Flutter, Firebase"}
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/Sparta.png"}
+            title={"Sparta HMIF 2022"}
+            desc={
+              "Website for the initial stage of the orientation program for new members of HMIF ITB."
+            }
+            urlGithub={"https://github.com/sparta-hmif/Web-Sparta-2022"}
+            tech={"NextJS, Prisma"}
+            urlView={""}
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/TaskTender.png"}
+            title={"Task Tender"}
+            desc={
+              "The innovative mobile apps that connects helpers or workers with their employers while allowing seamless job monitoring."
+            }
+            urlGithub={"https://github.com/ardhanurfan/task_tender"}
+            tech={"Flutter, Firebase"}
+            urlView={""}
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/Simentel.png"}
+            title={"SiMentel"}
+            desc={
+              "A website specifically designed to manage and monitor maintenance and facilities within a hostel."
+            }
+            urlGithub={"https://github.com/ardhanurfan/SiMenTel"}
+            tech={"React, Supabase"}
+            urlView={"https://simentel.vercel.app/"}
+          ></ProjectCard>
+          <ProjectCard
+            imageUrl={"/project/grocerio.png"}
+            title={"Grocer.io"}
+            desc={
+              "An e-commerce website platform specializing in the sale of fresh vegetables and quality food ingredients."
+            }
+            urlGithub={"https://github.com/ardhanurfan/grocer.io"}
+            tech={"React, Supabase"}
+            urlView={"https://grocerio.vercel.app/"}
           ></ProjectCard>
           <ProjectCard
             imageUrl={"/project/SimpliCity.png"}

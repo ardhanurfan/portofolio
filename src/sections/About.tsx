@@ -55,12 +55,13 @@ function About() {
               </h2>
 
               <p className="py-2 text-justify text-slate-800 dark:text-slate-300">
-                I am an undergraduate student in Information System and
-                Technology at Bandung Institute of Technology (ITB). I have a
-                keen interest in technology and programming, specifically in
-                software development. With proficiency in multiple programming
-                languages and experience in software development, I am motivated
-                to contribute to the tech industry and make a positive impact.
+                I am an undergraduate student in Information Systems and
+                Technology at Bandung Institute of Technology (ITB). I am keenly
+                interested in technology and programming, specifically in
+                software engineering and data science. With proficiency in
+                multiple programming languages and experience in building
+                systems, I am motivated to contribute to the tech industry and
+                make a positive impact.
               </p>
               <div className="flex w-full justify-center py-4">
                 <a

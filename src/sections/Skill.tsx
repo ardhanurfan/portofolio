@@ -91,6 +91,30 @@ function Skill() {
             logoUrl={"/tech/docker.svg"}
             nama={"Docker"}
           ></TechSkillCard>
+          <TechSkillCard
+            logoUrl={"/tech/gcp.svg"}
+            nama={"Google Cloud"}
+          ></TechSkillCard>
+          <TechSkillCard
+            logoUrl={"/tech/tflite.svg"}
+            nama={"TensorFlow Lite"}
+          ></TechSkillCard>
+          <TechSkillCard
+            logoUrl={"/tech/websocket.svg"}
+            nama={"Websocket"}
+          ></TechSkillCard>
+          <TechSkillCard
+            logoUrl={"/tech/tableau.svg"}
+            nama={"Tableau"}
+          ></TechSkillCard>
+          <TechSkillCard
+            logoUrl={"/tech/powerbi.svg"}
+            nama={"Power BI"}
+          ></TechSkillCard>
+          <TechSkillCard
+            logoUrl={"/tech/grafana.svg"}
+            nama={"Grafana"}
+          ></TechSkillCard>
         </div>
       </section>
     </>

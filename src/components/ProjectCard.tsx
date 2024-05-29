@@ -39,7 +39,7 @@ export const ProjectCard = ({
           alt="Project Cover"
           className="h-full w-full object-cover object-center transition-transform duration-500 ease-in-out group-hover:-rotate-12 group-hover:scale-125 group-hover:rounded-lg"
         />
-        <div className="absolute bottom-0 hidden h-full w-full bg-slate-800 bg-opacity-50 p-2 backdrop-blur-sm group-hover:block md:h-4/5 lg:h-2/3">
+        <div className="absolute bottom-0 hidden h-full w-full bg-slate-800 bg-opacity-50 p-2 backdrop-blur-sm group-hover:flex group-hover:flex-col group-hover:justify-center">
           <h1 className="mb-1 w-full text-center text-xs font-medium text-white md:text-lg lg:text-xl">
             {title}
           </h1>

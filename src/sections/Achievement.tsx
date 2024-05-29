@@ -22,11 +22,15 @@ function Achievement() {
           ></TitleText>
         </motion.div>
         <div className="container grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 lg:grid-cols-3">
-          <AchieveCard title={"Scholarship Awardee 2023"} heldBy={"Paragon"} />
+          <AchieveCard
+            title={"First Winner FindIT Hackathon 2024"}
+            heldBy={"DTETI UGM"}
+          />
           <AchieveCard
             title={"First Winner Hackathon 2023"}
             heldBy={"Dexa Group"}
           />
+          <AchieveCard title={"Scholarship Awardee 2023"} heldBy={"Paragon"} />
           <AchieveCard
             title={"First Winner BMC Competition 2023"}
             heldBy={"HIPMI PT UNNES"}
