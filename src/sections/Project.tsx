@@ -38,7 +38,7 @@ function Project() {
             imageUrl={"/project/Travee.png"}
             title={"Travee"}
             desc={
-              "The innovative mobile apps that connects helpers or workers with their employers while allowing seamless job monitoring."
+              "Ultimate travel planning mobile application that centralizes all your trip essentials."
             }
             urlGithub={"https://github.com/ardhanurfan/travee"}
             tech={"React Native, Firebase"}
@@ -134,7 +134,7 @@ function Project() {
             imageUrl={"/project/TaskTender.png"}
             title={"Task Tender"}
             desc={
-              "The innovative mobile apps that connects helpers or workers with their employers while allowing seamless job monitoring."
+              "Ultimate travel planning mobile application that centralizes all your trip essentials."
             }
             urlGithub={"https://github.com/ardhanurfan/task_tender"}
             tech={"Flutter, Firebase"}
