@@ -17,7 +17,7 @@ function Project() {
         >
           <TypingText titles="| Projects"></TypingText>
           <TitleText
-            titles="Last My Works"
+            titles="My Last Works"
             textStyles={"text-center"}
           ></TitleText>
         </motion.div>
