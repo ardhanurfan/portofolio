@@ -19,12 +19,15 @@ export const AchieveCard = ({
     easing: "cubic-bezier(.03,.98,.52,.99)", // Easing on enter/exit.
   };
   return (
-    <Tilt options={defaultOptions}>
+    <Tilt
+      className="aspect-[3/1] w-full md:w-[48%] xl:w-[32%]"
+      options={defaultOptions}
+    >
       <div
         data-aos="zoom-in"
-        className="relative flex aspect-[5/1] w-auto flex-col items-center justify-center overflow-hidden rounded-lg bg-slate-500 bg-opacity-60 backdrop-blur-xl transition-all duration-300 ease-in-out dark:bg-slate-100 dark:bg-opacity-40 md:aspect-[3/1]"
+        className="relative flex aspect-[3/1] w-full flex-col items-center justify-center overflow-hidden rounded-lg bg-slate-500 bg-opacity-60 p-2 backdrop-blur-xl transition-all duration-300 ease-in-out dark:bg-slate-100 dark:bg-opacity-40"
       >
-        <h1 className="mb-2 w-full text-center text-sm font-medium text-white md:text-lg lg:text-xl">
+        <h1 className="mb-2 w-full text-center text-sm font-medium text-white lg:text-xl">
           {title}
         </h1>
         <h1 className="w-full text-center text-[10px] font-medium text-white md:text-[12px] lg:text-sm">
