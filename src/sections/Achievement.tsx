@@ -23,6 +23,10 @@ function Achievement() {
         </motion.div>
         <div className="container flex flex-wrap justify-center gap-3 md:gap-4">
           <AchieveCard
+            title={"Third Winner Youth Economic Leadership Program 2024"}
+            heldBy={"Central Bank of Indonesia"}
+          />
+          <AchieveCard
             title={"First Winner FindIT Hackathon 2024"}
             heldBy={"DTETI UGM"}
           />
