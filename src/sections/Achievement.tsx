@@ -24,7 +24,7 @@ function Achievement() {
         <div className="container flex flex-wrap justify-center gap-3 md:gap-4">
           <AchieveCard
             title={
-              "Top 9 Huawei Developer Competition 2024, Asia Pacific Enterprise Track 2024"
+              "Top 9 Huawei Developer Competition Asia Pacific Enterprise Track 2024"
             }
             heldBy={"Huawei"}
           />
