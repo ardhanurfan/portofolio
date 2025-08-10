@@ -26,7 +26,7 @@ function Experience() {
           <ExperienceCard
             title={"Paper.id"}
             position={"Software Engineer | Internship"}
-            year={"Jan 2025 - Aug 2025"}
+            year={"Feb 2025 - Aug 2025"}
             urutan={0}
           ></ExperienceCard>
           <ExperienceCard
