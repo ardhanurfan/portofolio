@@ -23,6 +23,10 @@ body { @apply bg-zinc-50 font-sans text-base text-zinc-600 antialiased dark:bg-i
   .h2 { @apply ink text-3xl font-semibold tracking-tight md:text-5xl; }
 }
 
+@media (pointer: coarse) {
+  .btn { min-height: 44px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }

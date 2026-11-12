@@ -89,13 +89,13 @@ function Shell() {
     <>
       <Navbar theme={theme} onToggleTheme={toggle} onOpenPalette={() => setPalette(true)} />
       {world && (
-        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-30 lg:opacity-100">
+        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-[0.18] md:opacity-25 lg:opacity-100">
           <Suspense fallback={null}>
             <World dark={theme === "dark"} collected={collected} onCollect={collect} />
           </Suspense>
         </div>
       )}
-      <main className="relative z-10">
+      <main className="relative z-10 pb-20 md:pb-0 [@media(max-height:500px)]:pb-0">
         <Hero world={world} gems={collected.size} gemTotal={GEM_TOTAL} />
         <About />
         <Quest />

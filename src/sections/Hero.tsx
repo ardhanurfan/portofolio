@@ -9,6 +9,8 @@ interface Props {
   gemTotal: number;
 }
 
+const coarse = typeof window !== "undefined" && !!window.matchMedia?.("(pointer: coarse)").matches;
+
 export function Hero({ world, gems, gemTotal }: Props) {
   const ref = useSectionVisit<HTMLElement>("hero");
   return (
@@ -16,11 +18,11 @@ export function Hero({ world, gems, gemTotal }: Props) {
       {world && (
         <p className="muted divider pointer-events-none absolute right-4 top-24 rounded-full border bg-white px-3 py-1.5 dark:bg-ink-900" aria-live="polite">
           Gems <span className="font-semibold text-accent tabular-nums">{gems}</span>/{gemTotal}
-          {gems === gemTotal ? " · Gem Hunter unlocked" : " · click the gems"}
+          {gems === gemTotal ? " · Gem Hunter unlocked" : ` · ${coarse ? "tap" : "click"} the gems`}
         </p>
       )}
       <div className="container pointer-events-none relative z-10">
-        <div className="pointer-events-auto max-w-2xl">
+        <div className="pointer-events-auto max-w-2xl xl:max-w-3xl">
           <div className="flex items-center gap-3">
             <img src="/avatar.png" alt="Portrait of Ardhan Nur Urfan" width={56} height={56} className="h-14 w-14 rounded-full object-cover ring-2 ring-white dark:ring-white/10" />
             <p className="muted">
@@ -28,7 +30,7 @@ export function Hero({ world, gems, gemTotal }: Props) {
               Available for new opportunities · {profile.location}
             </p>
           </div>
-          <h1 className="ink mt-6 text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl">{profile.name}</h1>
+          <h1 className="ink mt-6 text-[2.75rem] font-semibold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl xl:text-8xl">{profile.name}</h1>
           <p className="mt-4 text-2xl font-medium text-accent md:text-3xl">
             {profile.role} at {profile.company}
           </p>

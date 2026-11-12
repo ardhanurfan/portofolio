@@ -72,7 +72,7 @@ export const projects: Project[] = [
     title: "Travee",
     desc: "Travel planning app that centralizes trip essentials.",
     tech: ["React Native", "Firebase"],
-    tags: ["mobile"],
+    tags: ["mobile", "ai"],
     image: "/project/Travee.png",
     repo: "https://github.com/ardhanurfan/travee",
   },
