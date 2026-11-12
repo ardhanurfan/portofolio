@@ -1,144 +1,56 @@
-import { motion } from "framer-motion";
-import { navVariants } from "../utils/motion";
-import "../style/navbar.css";
-import { useEffect, useRef, useState } from "react";
-import ToggleDarkMode from "./ToggleDarkMode";
-import { useEventListener } from "usehooks-ts";
+import { FiCommand, FiMoon, FiSun } from "react-icons/fi";
+import { useExplore } from "../lib/explore";
+import type { Theme } from "../lib/theme";
 
-function Navbar() {
-  const [stickyClass, setStickyClass] = useState("absolute");
-  const [openNav, setOpenNav] = useState(false);
+const links = [
+  ["quest", "Quest"],
+  ["skills", "Skills"],
+  ["trophies", "Trophies"],
+  ["projects", "Projects"],
+  ["contact", "Contact"],
+] as const;
 
-  const hamburger = () => {
-    setOpenNav(!openNav);
-  };
-
-  const stickNavbar = () => {
-    const header = document.querySelector("header");
-    if (header != null) {
-      window.scrollY > header.offsetTop
-        ? setStickyClass("navbar-fixed")
-        : setStickyClass("absolute");
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", stickNavbar);
-
-    return () => {
-      window.removeEventListener("scroll", stickNavbar);
-    };
-  }, []);
-
-  const documentRef = useRef<Document>(document);
-  const onClickHamburger = (event: Event) => {
-    let cekHamburger = true;
-    const doc = document.getElementsByClassName("hamburger");
-    for (let index = 0; index < doc.length; index++) {
-      cekHamburger = cekHamburger && event.target != doc[index];
-    }
-    if (cekHamburger) {
-      setOpenNav(false);
-    }
-  };
-  useEventListener("click", onClickHamburger, documentRef);
-
-  return (
-    <>
-      <motion.nav
-        variants={navVariants}
-        initial="hidden"
-        animate="show"
-        className="relative flex items-center py-8"
-      >
-        <div className="gradient-01 absolute inset-0 top-0 w-[50%]"></div>
-        <header
-          className={
-            stickyClass +
-            " top-0 z-[999] flex w-full items-center transition delay-100 ease-in-out"
-          }
-        >
-          <div className="container">
-            <div className="relative flex items-center justify-between">
-              <div className="px-4">
-                <a
-                  href="#"
-                  className="flex items-center py-4 text-xl font-extrabold text-pink-500 dark:text-white xl:text-4xl"
-                >
-                  <img
-                    src="/logo.png"
-                    alt="logo"
-                    className="mr-2 h-6 xl:mr-4 xl:h-10"
-                  />
-                  <h1>ard.studios</h1>
-                </a>
-              </div>
-              <div className="flex items-center px-4">
-                <button
-                  onClick={() => hamburger()}
-                  id="hamburger"
-                  name="hamburger"
-                  type="button"
-                  className={
-                    (openNav ? "hamburger-active " : "") +
-                    "hamburger absolute right-4 block xl:hidden"
-                  }
-                >
-                  <span className="hamburger-line hamburger origin-top-left"></span>
-                  <span className="hamburger-line hamburger"></span>
-                  <span className="hamburger-line hamburger origin-bottom-left"></span>
-                </button>
-
-                <nav
-                  id="nav-menu"
-                  className={
-                    (openNav ? "" : "hidden ") +
-                    "absolute right-0 top-full w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 xl:static xl:block xl:max-w-full xl:rounded-none xl:bg-transparent xl:shadow-none xl:dark:bg-transparent"
-                  }
-                >
-                  <ul onClick={() => hamburger()} className="block xl:flex">
-                    <li className="group">
-                      <a href="#about" className="nav-items">
-                        About
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#skills" className="nav-items">
-                        Skills
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#experiences" className="nav-items">
-                        Experiences
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#projects" className="nav-items">
-                        Projects
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#achievements" className="nav-items">
-                        Achievements
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#contact" className="nav-items">
-                        Contact
-                      </a>
-                    </li>
-                    <li className="flex items-center pl-8">
-                      <ToggleDarkMode></ToggleDarkMode>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-          </div>
-        </header>
-      </motion.nav>
-    </>
-  );
+interface Props {
+  theme: Theme;
+  onToggleTheme: () => void;
+  onOpenPalette: () => void;
 }
 
-export default Navbar;
+export function Navbar({ theme, onToggleTheme, onOpenPalette }: Props) {
+  const { percent } = useExplore();
+  return (
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/60 bg-paper/80 backdrop-blur dark:border-white/10 dark:bg-ink-950/80">
+      <div
+        role="progressbar"
+        aria-label="Explored"
+        aria-valuenow={percent}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="absolute inset-x-0 top-0 h-0.5"
+      >
+        <div className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-500" style={{ width: `${percent}%` }} />
+      </div>
+      <nav className="container flex h-16 items-center justify-between">
+        <a href="#hero" className="font-display text-lg font-bold text-slate-900 dark:text-white">
+          ardhan<span className="text-gradient">.</span>
+        </a>
+        <ul className="hidden items-center gap-6 text-sm md:flex">
+          {links.map(([id, label]) => (
+            <li key={id}>
+              <a className="hover:text-indigo-500" href={`#${id}`}>{label}</a>
+            </li>
+          ))}
+        </ul>
+        <div className="flex items-center gap-2">
+          <span className="hidden font-mono text-xs text-slate-500 sm:block" aria-live="polite">{percent}% explored</span>
+          <button onClick={onOpenPalette} aria-label="Open command palette" className="btn-ghost !px-3 !py-2">
+            <FiCommand /> <span className="hidden text-xs sm:inline">K</span>
+          </button>
+          <button onClick={onToggleTheme} aria-label="Toggle theme" className="btn-ghost !px-3 !py-2">
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
+          </button>
+        </div>
+      </nav>
+    </header>
+  );
+}
