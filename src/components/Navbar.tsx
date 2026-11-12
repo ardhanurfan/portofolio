@@ -31,8 +31,9 @@ export function Navbar({ theme, onToggleTheme, onOpenPalette }: Props) {
         <div className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-500" style={{ width: `${percent}%` }} />
       </div>
       <nav className="container flex h-16 items-center justify-between">
-        <a href="#hero" className="font-display text-lg font-bold text-slate-900 dark:text-white">
-          ardhan<span className="text-gradient">.</span>
+        <a href="#hero" aria-label="Home" className="flex items-center gap-2 font-display text-lg font-bold text-slate-900 dark:text-white">
+          <img src="/logo.png" alt="" className="h-8 w-8 rounded-md object-contain" />
+          <span className="hidden sm:inline">Ardhan</span>
         </a>
         <ul className="hidden items-center gap-6 text-sm md:flex">
           {links.map(([id, label]) => (
