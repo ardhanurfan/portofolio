@@ -1,144 +1,147 @@
-import { motion } from "framer-motion";
-import { navVariants } from "../utils/motion";
-import "../style/navbar.css";
-import { useEffect, useRef, useState } from "react";
-import ToggleDarkMode from "./ToggleDarkMode";
-import { useEventListener } from "usehooks-ts";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { FiDownload, FiMail, FiMenu, FiMoon, FiSearch, FiSun, FiX } from "react-icons/fi";
+import { profile } from "../data/profile";
+import { SECTION_IDS, useExplore } from "../lib/explore";
+import type { Theme } from "../lib/theme";
 
-function Navbar() {
-  const [stickyClass, setStickyClass] = useState("absolute");
-  const [openNav, setOpenNav] = useState(false);
+const links = [
+  ["about", "About"],
+  ["quest", "Experience"],
+  ["skills", "Skills"],
+  ["trophies", "Awards"],
+  ["projects", "Projects"],
+  ["education", "Education"],
+  ["contact", "Contact"],
+] as const;
 
-  const hamburger = () => {
-    setOpenNav(!openNav);
-  };
+interface Props {
+  theme: Theme;
+  onToggleTheme: () => void;
+  onOpenPalette: () => void;
+}
 
-  const stickNavbar = () => {
-    const header = document.querySelector("header");
-    if (header != null) {
-      window.scrollY > header.offsetTop
-        ? setStickyClass("navbar-fixed")
-        : setStickyClass("absolute");
-    }
+export function Navbar({ theme, onToggleTheme, onOpenPalette }: Props) {
+  const { percent, visited } = useExplore();
+  const [open, setOpen] = useState(false);
+  const reduce = useReducedMotion();
+
+  // close the menu first, then scroll once its closing animation has finished
+  const goTo = (id: string) => {
+    setOpen(false);
+    window.setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth" });
+      history.replaceState(null, "", `#${id}`);
+    }, reduce ? 0 : 320);
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", stickNavbar);
-
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false);
+    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener("scroll", stickNavbar);
+      window.removeEventListener("keydown", onKey);
+      window.removeEventListener("resize", onResize);
     };
-  }, []);
-
-  const documentRef = useRef<Document>(document);
-  const onClickHamburger = (event: Event) => {
-    let cekHamburger = true;
-    const doc = document.getElementsByClassName("hamburger");
-    for (let index = 0; index < doc.length; index++) {
-      cekHamburger = cekHamburger && event.target != doc[index];
-    }
-    if (cekHamburger) {
-      setOpenNav(false);
-    }
-  };
-  useEventListener("click", onClickHamburger, documentRef);
+  }, [open]);
 
   return (
-    <>
-      <motion.nav
-        variants={navVariants}
-        initial="hidden"
-        animate="show"
-        className="relative flex items-center py-8"
+    <header className="divider fixed inset-x-0 top-0 z-40 border-b bg-zinc-50/95 dark:bg-ink-950/95">
+      <div
+        role="progressbar"
+        aria-label="Sections explored"
+        aria-valuenow={percent}
+        aria-valuemin={0}
+        aria-valuemax={100}
+        className="absolute inset-x-0 bottom-0 h-0.5 sm:hidden"
       >
-        <div className="gradient-01 absolute inset-0 top-0 w-[50%]"></div>
-        <header
-          className={
-            stickyClass +
-            " top-0 z-[999] flex w-full items-center transition delay-100 ease-in-out"
-          }
-        >
-          <div className="container">
-            <div className="relative flex items-center justify-between">
-              <div className="px-4">
+        <div className="h-full bg-accent transition-all duration-500" style={{ width: `${percent}%` }} />
+      </div>
+      <nav className="container flex h-16 items-center justify-between gap-4" aria-label="Main">
+        <a href="#hero" aria-label="Home" className="ink flex items-center gap-2.5 font-semibold">
+          <img src="/logo.png" alt="" className="h-8 w-8 object-contain" />
+          <span className="hidden sm:inline">Ardhan Nur Urfan</span>
+        </a>
+        <ul className="hidden items-center gap-1 lg:flex">
+          {links.filter(([id]) => id !== "about" && id !== "education").map(([id, label]) => (
+            <li key={id}>
+              <a className="rounded-md px-3 py-2 text-sm font-medium hover:bg-zinc-200/70 dark:hover:bg-white/10" href={`#${id}`}>{label}</a>
+            </li>
+          ))}
+        </ul>
+        <div className="flex items-center gap-2">
+          <div className="mr-1 hidden items-center gap-2 sm:flex" title="Portfolio explored">
+            <div className="flex gap-1" aria-hidden>
+              {SECTION_IDS.map((id) => (
+                <span key={id} className={`h-1.5 w-3 rounded-full ${visited.has(id) ? "bg-accent" : "bg-zinc-300 dark:bg-white/20"}`} />
+              ))}
+            </div>
+            <span className="muted w-9 text-right tabular-nums" aria-live="polite">{percent}%</span>
+          </div>
+          <button onClick={onOpenPalette} aria-label="Search sections and actions" className="btn-ghost !px-3 !py-2">
+            <FiSearch /> <span className="hidden text-xs text-zinc-500 lg:inline">⌘K</span>
+          </button>
+          <button onClick={onToggleTheme} aria-label="Toggle theme" className="btn-ghost !px-3 !py-2">
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
+          </button>
+          <button
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            className="btn-ghost !px-3 !py-2 lg:hidden"
+          >
+            {open ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
+      </nav>
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            initial={reduce ? false : { height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
+            className="divider overflow-hidden border-t bg-zinc-50 lg:hidden dark:bg-ink-950"
+          >
+            <div className="container max-h-[calc(100dvh-4rem)] overflow-y-auto py-3">
+              <ul>
+                {links.map(([id, label]) => (
+                  <li key={id}>
+                    <a
+                      href={`#${id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        goTo(id);
+                      }}
+                      className="ink flex items-center justify-between rounded-lg px-3 py-3.5 text-base font-medium hover:bg-zinc-200/70 dark:hover:bg-white/10"
+                    >
+                      {label}
+                      <span aria-hidden className={`h-2 w-2 rounded-full ${visited.has(id) ? "bg-accent" : "bg-zinc-300 dark:bg-white/20"}`} />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-2 grid grid-cols-2 gap-2 pb-2 sm:max-w-md">
+                <a href={profile.cv} target="_blank" rel="noreferrer" className="btn-ghost"><FiDownload /> CV</a>
                 <a
-                  href="#"
-                  className="flex items-center py-4 text-xl font-extrabold text-pink-500 dark:text-white xl:text-4xl"
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    goTo("contact");
+                  }}
+                  className="btn-primary"
                 >
-                  <img
-                    src="/logo.png"
-                    alt="logo"
-                    className="mr-2 h-6 xl:mr-4 xl:h-10"
-                  />
-                  <h1>ard.studios</h1>
+                  <FiMail /> Contact
                 </a>
               </div>
-              <div className="flex items-center px-4">
-                <button
-                  onClick={() => hamburger()}
-                  id="hamburger"
-                  name="hamburger"
-                  type="button"
-                  className={
-                    (openNav ? "hamburger-active " : "") +
-                    "hamburger absolute right-4 block xl:hidden"
-                  }
-                >
-                  <span className="hamburger-line hamburger origin-top-left"></span>
-                  <span className="hamburger-line hamburger"></span>
-                  <span className="hamburger-line hamburger origin-bottom-left"></span>
-                </button>
-
-                <nav
-                  id="nav-menu"
-                  className={
-                    (openNav ? "" : "hidden ") +
-                    "absolute right-0 top-full w-full max-w-[250px] rounded-md bg-white py-5 shadow-lg dark:bg-slate-800 xl:static xl:block xl:max-w-full xl:rounded-none xl:bg-transparent xl:shadow-none xl:dark:bg-transparent"
-                  }
-                >
-                  <ul onClick={() => hamburger()} className="block xl:flex">
-                    <li className="group">
-                      <a href="#about" className="nav-items">
-                        About
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#skills" className="nav-items">
-                        Skills
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#experiences" className="nav-items">
-                        Experiences
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#projects" className="nav-items">
-                        Projects
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#achievements" className="nav-items">
-                        Achievements
-                      </a>
-                    </li>
-                    <li className="group">
-                      <a href="#contact" className="nav-items">
-                        Contact
-                      </a>
-                    </li>
-                    <li className="flex items-center pl-8">
-                      <ToggleDarkMode></ToggleDarkMode>
-                    </li>
-                  </ul>
-                </nav>
-              </div>
             </div>
-          </div>
-        </header>
-      </motion.nav>
-    </>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </header>
   );
 }
-
-export default Navbar;

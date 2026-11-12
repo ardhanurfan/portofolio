@@ -2,155 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Eudoxus Sans", sans-serif;
-  scroll-behavior: smooth;
+:root { --accent: 37 99 235; --accent-ink: 255 255 255; }
+.dark { --accent: 96 165 250; --accent-ink: 9 9 11; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { @apply bg-zinc-50 font-sans text-base text-zinc-600 antialiased dark:bg-ink-950 dark:text-zinc-400; }
+::selection { @apply bg-accent/25; }
+:focus-visible { @apply outline-2 outline-offset-2 outline-accent; }
+
+@layer components {
+  .ink { @apply text-zinc-950 dark:text-zinc-50; }
+  .muted { @apply text-sm text-zinc-500 dark:text-zinc-400; }
+  .eyebrow { @apply text-sm font-medium text-accent; }
+  .card { @apply rounded-xl border border-zinc-200 bg-white shadow-sm dark:border-white/10 dark:bg-ink-900 dark:shadow-none; }
+  .divider { @apply border-zinc-200 dark:border-white/10; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-medium transition; }
+  .btn-primary { @apply btn bg-accent text-accent-ink shadow-sm hover:opacity-90; }
+  .btn-ghost { @apply btn border border-zinc-300 text-zinc-800 hover:bg-zinc-100 dark:border-white/20 dark:text-zinc-200 dark:hover:bg-white/10; }
+  .chip { @apply rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 dark:bg-white/10 dark:text-zinc-300; }
+  .h2 { @apply ink text-3xl font-semibold tracking-tight md:text-5xl; }
 }
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
+@media (pointer: coarse) {
+  .btn { min-height: 44px; }
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  @apply rounded-[5px] bg-pink-400;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-pink-500;
-}
-
-.gradient-01 {
-  background: linear-gradient(
-    270deg,
-    hsl(295deg 76% 51%) 0%,
-    hsl(284deg 70% 73%) 26%,
-    hsl(257deg 70% 86%) 39%,
-    hsl(202deg 92% 90%) 50%,
-    hsl(215deg 77% 81%) 61%,
-    hsl(221deg 73% 70%) 74%,
-    hsl(220deg 76% 51%) 100%
-  );
-  filter: blur(100px);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-.gradient-02 {
-  position: absolute;
-  width: 200px;
-  height: 438px;
-  top: 0px;
-  right: 0px;
-
-  background: #7aebfb;
-  filter: blur(190px);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-.gradient-03 {
-  position: absolute;
-  width: 404px;
-  height: 800px;
-  left: 20%;
-  top: 5%;
-
-  background: rgba(149, 66, 232, 0.35);
-  filter: blur(175px);
-  transform: rotate(-114.2deg);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-.gradient-04 {
-  position: absolute;
-  width: 304px;
-  height: 100vh;
-  left: 30%;
-  top: 10%;
-
-  background: rgba(45, 72, 152, 0.75);
-  filter: blur(200px);
-  transform: rotate(-53.13deg);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-.gradient-05 {
-  position: absolute;
-  width: 304px;
-  height: 100vh;
-  left: 70%;
-  top: 10%;
-
-  background: rgba(149, 66, 232, 0.35);
-  filter: blur(200px);
-  transform: rotate(-53.13deg);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-.contact-gradient {
-  position: absolute;
-  width: 200px;
-  height: 316px;
-  left: 0px;
-  top: 0px;
-
-  background: #8d39a3;
-  filter: blur(175px);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-.footer-gradient {
-  position: absolute;
-  width: 500px;
-  height: 100px;
-  left: 60%;
-  bottom: 0;
-
-  background: #65c4fa;
-  filter: blur(150px);
-
-  /* biar aman di mobile */
-  will-change: transform;
-}
-
-/* hero section */
-.heroHeading {
-  @apply text-[48px] font-bold leading-[64px] text-sky-900 dark:text-white md:text-[80px] md:leading-[80px] lg:text-[100px] lg:leading-[100px];
-}
-
-.segitiga-kiri {
-  height: 0px;
-  width: 0px;
-  border-left: solid 20px #ec4899;
-  border-top: solid 15px transparent;
-  border-bottom: solid 15px transparent;
-}
-
-.segitiga-kanan {
-  height: 0px;
-  width: 0px;
-  border-right: solid 20px #ec4899;
-  border-top: solid 15px transparent;
-  border-bottom: solid 15px transparent;
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
 }
