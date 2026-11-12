@@ -3,17 +3,23 @@
 @tailwind utilities;
 
 html { scroll-behavior: smooth; scroll-padding-top: 80px; }
-body { @apply bg-paper font-sans text-slate-700 antialiased dark:bg-ink-950 dark:text-slate-300; }
-::selection { @apply bg-indigo-500/30; }
-:focus-visible { @apply outline-2 outline-offset-2 outline-indigo-500; }
+body { @apply bg-bone font-sans text-ink-700 antialiased dark:bg-ink-950 dark:text-bone-300; }
+::selection { @apply bg-signal text-ink-950; }
+:focus-visible { @apply outline-2 outline-offset-2 outline-signal; }
+
+@layer base {
+  h2 em, h1 em { @apply text-signal; }
+}
 
 @layer components {
-  .card { @apply rounded-2xl border border-slate-200 bg-white/80 shadow-sm backdrop-blur dark:border-white/10 dark:bg-ink-800/70; }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition active:scale-95; }
-  .btn-primary { @apply btn bg-gradient-to-r from-indigo-500 to-cyan-500 text-white shadow-lg shadow-indigo-500/25 hover:brightness-110; }
-  .btn-ghost { @apply btn border border-slate-300 text-slate-800 hover:bg-slate-100 dark:border-white/20 dark:text-white dark:hover:bg-white/10; }
-  .text-gradient { @apply bg-gradient-to-r from-indigo-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent; }
-  .chip { @apply rounded-full border border-slate-200 px-3 py-1 text-xs font-medium dark:border-white/10; }
+  .hair { @apply border border-ink-900/25 dark:border-bone/25; }
+  .card { @apply border border-ink-900/25 bg-bone dark:border-bone/25 dark:bg-ink-900; }
+  .btn { @apply inline-flex items-center justify-center gap-2 border px-5 py-3 font-mono text-xs font-medium uppercase tracking-wider transition-transform; }
+  .btn-primary { @apply btn border-ink-950 bg-signal text-ink-950 shadow-[4px_4px_0_0_#0d0d0b] hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-1 active:translate-y-1 active:shadow-none dark:border-bone dark:shadow-[4px_4px_0_0_#ece7da]; }
+  .btn-ghost { @apply btn border-ink-900/40 text-ink-900 hover:bg-ink-900 hover:text-bone dark:border-bone/40 dark:text-bone dark:hover:bg-bone dark:hover:text-ink-950; }
+  .label { @apply font-mono text-[11px] uppercase tracking-[0.18em] text-ink-700/70 dark:text-bone/60; }
+  .chip { @apply border border-ink-900/25 px-2 py-1 font-mono text-[11px] dark:border-bone/25; }
+  .ink { @apply text-ink-950 dark:text-bone; }
 }
 
 @media (prefers-reduced-motion: reduce) {

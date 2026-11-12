@@ -32,9 +32,9 @@ export function Contact() {
       .catch(() => setStatus("error"));
   };
 
-  const field = "w-full rounded-xl border border-slate-300 bg-transparent px-4 py-3 text-sm dark:border-white/20";
+  const field = "hair w-full bg-transparent px-4 py-3 text-sm";
   return (
-    <Section id="contact" eyebrow="07 · Final boss" title="Let's schedule an interview">
+    <Section id="contact" index="07" eyebrow="Final boss" title={<>Let&apos;s schedule <em>an interview.</em></>}>
       <div className="grid gap-8 pb-16 md:grid-cols-2 md:pb-0">
         <div className="space-y-4">
           <p>Hiring for backend, platform or full-stack? I reply fast. Send a note, or reach me directly:</p>
@@ -44,18 +44,18 @@ export function Contact() {
             <a className="btn-ghost" href={profile.links.github} target="_blank" rel="noreferrer"><FiGithub /> GitHub</a>
           </div>
         </div>
-        <form onSubmit={onSubmit} noValidate className="card space-y-4 p-6">
+        <form onSubmit={onSubmit} noValidate className="card space-y-4 p-6 md:p-8">
           {(["name", "email"] as const).map((n) => (
             <div key={n}>
-              <label htmlFor={n} className="mb-1 block text-sm font-medium capitalize">{n}</label>
+              <label htmlFor={n} className="label mb-1 block">{n}</label>
               <input id={n} name={n === "name" ? "name" : "email"} type={n === "email" ? "email" : "text"} aria-invalid={!!errors[n]} className={field} />
-              {errors[n] && <p className="mt-1 text-xs text-red-500">{errors[n]}</p>}
+              {errors[n] && <p className="mt-1 font-mono text-xs text-signal">{errors[n]}</p>}
             </div>
           ))}
           <div>
-            <label htmlFor="message" className="mb-1 block text-sm font-medium">Message</label>
+            <label htmlFor="message" className="label mb-1 block">Message</label>
             <textarea id="message" name="message" rows={4} aria-invalid={!!errors.message} className={field} />
-            {errors.message && <p className="mt-1 text-xs text-red-500">{errors.message}</p>}
+            {errors.message && <p className="mt-1 font-mono text-xs text-signal">{errors.message}</p>}
           </div>
           <button className="btn-primary w-full" disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Send message"}</button>
           <p role="status" className="text-sm">
@@ -64,7 +64,7 @@ export function Contact() {
           </p>
         </form>
       </div>
-      <footer className="mt-16 hidden text-center text-xs text-slate-500 md:block">© {new Date().getFullYear()} {profile.name}</footer>
+      <footer className="label mt-16 hidden text-center md:block">© {new Date().getFullYear()} {profile.name}</footer>
     </Section>
   );
 }

@@ -1,5 +1,5 @@
 import { FiCommand, FiMoon, FiSun } from "react-icons/fi";
-import { useExplore } from "../lib/explore";
+import { SECTION_IDS, useExplore } from "../lib/explore";
 import type { Theme } from "../lib/theme";
 
 const links = [
@@ -17,35 +17,39 @@ interface Props {
 }
 
 export function Navbar({ theme, onToggleTheme, onOpenPalette }: Props) {
-  const { percent } = useExplore();
+  const { percent, visited } = useExplore();
   return (
-    <header className="fixed inset-x-0 top-0 z-40 border-b border-slate-200/60 bg-paper/80 backdrop-blur dark:border-white/10 dark:bg-ink-950/80">
-      <div
-        role="progressbar"
-        aria-label="Explored"
-        aria-valuenow={percent}
-        aria-valuemin={0}
-        aria-valuemax={100}
-        className="absolute inset-x-0 top-0 h-0.5"
-      >
-        <div className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 transition-all duration-500" style={{ width: `${percent}%` }} />
-      </div>
-      <nav className="container flex h-16 items-center justify-between">
-        <a href="#hero" aria-label="Home" className="flex items-center gap-2 font-display text-lg font-bold text-slate-900 dark:text-white">
-          <img src="/logo.png" alt="" className="h-8 w-8 rounded-md object-contain" />
+    <header className="fixed inset-x-0 top-0 z-40 border-b border-ink-900/25 bg-bone dark:border-bone/25 dark:bg-ink-950">
+      <nav className="container flex h-16 items-center justify-between gap-4">
+        <a href="#hero" aria-label="Home" className="ink flex items-center gap-3 font-display text-2xl">
+          <img src="/logo.png" alt="" className="h-8 w-8 object-contain" />
           <span className="hidden sm:inline">Ardhan</span>
         </a>
-        <ul className="hidden items-center gap-6 text-sm md:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {links.map(([id, label]) => (
             <li key={id}>
-              <a className="hover:text-indigo-500" href={`#${id}`}>{label}</a>
+              <a className="label hover:text-signal" href={`#${id}`}>{label}</a>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-2">
-          <span className="hidden font-mono text-xs text-slate-500 sm:block" aria-live="polite">{percent}% explored</span>
+        <div className="flex items-center gap-3">
+          <div
+            role="progressbar"
+            aria-label="Sections explored"
+            aria-valuenow={percent}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            className="hidden items-center gap-2 sm:flex"
+          >
+            <div className="flex gap-0.5" aria-hidden>
+              {SECTION_IDS.map((id) => (
+                <span key={id} className={`h-3 w-1.5 ${visited.has(id) ? "bg-signal" : "bg-ink-900/20 dark:bg-bone/20"}`} />
+              ))}
+            </div>
+            <span className="label w-10 text-right" aria-live="polite">{percent}%</span>
+          </div>
           <button onClick={onOpenPalette} aria-label="Open command palette" className="btn-ghost !px-3 !py-2">
-            <FiCommand /> <span className="hidden text-xs sm:inline">K</span>
+            <FiCommand /> <span className="hidden sm:inline">K</span>
           </button>
           <button onClick={onToggleTheme} aria-label="Toggle theme" className="btn-ghost !px-3 !py-2">
             {theme === "dark" ? <FiSun /> : <FiMoon />}

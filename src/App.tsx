@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { Suspense, lazy, useCallback, useEffect, useMemo, useState } from "react";
+import { useReducedMotion } from "framer-motion";
 import { CommandPalette } from "./components/CommandPalette";
 import { Navbar } from "./components/Navbar";
 import { StickyCta } from "./components/StickyCta";
@@ -17,6 +18,18 @@ import { Quest } from "./sections/Quest";
 import { Skills } from "./sections/Skills";
 import { Trophies } from "./sections/Trophies";
 
+const World = lazy(() => import("./scene/World"));
+const GEM_TOTAL = 12;
+
+function hasWebGL() {
+  try {
+    const c = document.createElement("canvas");
+    return !!(c.getContext("webgl2") || c.getContext("webgl"));
+  } catch {
+    return false;
+  }
+}
+
 const go = (id: string) => () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 function Shell() {
@@ -25,6 +38,11 @@ function Shell() {
   const [palette, setPalette] = useState(false);
   const [rewardSeen, setRewardSeen] = useState(false);
   const [egg, setEgg] = useState(false);
+  const reduce = useReducedMotion();
+  const [world, setWorld] = useState(false);
+  const [collected, setCollected] = useState<Set<number>>(new Set());
+  useEffect(() => setWorld(!reduce && hasWebGL()), [reduce]);
+  const collect = useCallback((id: number) => setCollected((s) => new Set(s).add(id)), []);
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => {
@@ -59,8 +77,15 @@ function Shell() {
   return (
     <>
       <Navbar theme={theme} onToggleTheme={toggle} onOpenPalette={() => setPalette(true)} />
-      <main>
-        <Hero />
+      {world && (
+        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-40 lg:opacity-100">
+          <Suspense fallback={null}>
+            <World dark={theme === "dark"} collected={collected} onCollect={collect} />
+          </Suspense>
+        </div>
+      )}
+      <main className="relative z-10">
+        <Hero world={world} gems={collected.size} gemTotal={GEM_TOTAL} />
         <About />
         <Quest />
         <Skills />
@@ -73,9 +98,9 @@ function Shell() {
       <CommandPalette open={palette} onClose={() => setPalette(false)} commands={commands} />
       <Toast show={complete && !rewardSeen} onClose={() => setRewardSeen(true)}>
         <b>100% explored.</b> Reward unlocked:{" "}
-        <a href="#contact" onClick={() => setRewardSeen(true)} className="font-semibold text-indigo-500 underline">let&apos;s talk</a>.
+        <a href="#contact" onClick={() => setRewardSeen(true)} className="font-semibold text-signal underline">let&apos;s talk</a>.
       </Toast>
-      <Toast show={egg} onClose={() => setEgg(false)}>🏆 Achievement unlocked: <b>Curious Engineer</b></Toast>
+      <Toast show={egg} onClose={() => setEgg(false)}>Achievement unlocked: <b>Curious Engineer</b></Toast>
     </>
   );
 }

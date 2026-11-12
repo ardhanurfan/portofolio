@@ -27,12 +27,12 @@ export function StatCounter({ value, prefix = "", suffix = "", label, hint, clas
 
   return (
     <div className={className} title={hint}>
-      <span ref={ref} className="font-display text-3xl font-bold text-slate-900 md:text-4xl dark:text-white">
+      <span ref={ref} className="ink block font-display text-5xl leading-none md:text-6xl">
         {prefix}
         {n.toFixed(d)}
-        {suffix}
+        <span className="text-signal">{suffix}</span>
       </span>
-      {label && <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">{label}</p>}
+      {label && <p className="label mt-2">{label}</p>}
       {hint && <p className="sr-only">{hint}</p>}
     </div>
   );

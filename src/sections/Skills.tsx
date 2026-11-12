@@ -6,7 +6,7 @@ export function Skills() {
   const [active, setActive] = useState(skillGroups[0].id);
   const group = skillGroups.find((g) => g.id === active) ?? skillGroups[0];
   return (
-    <Section id="skills" eyebrow="03 · Skill tree" title="Pick a branch">
+    <Section id="skills" index="03" eyebrow="Skill tree" title={<>Pick a branch, <em>check the level.</em></>}>
       <div role="tablist" aria-label="Skill branches" className="flex flex-wrap gap-2">
         {skillGroups.map((g) => (
           <button
@@ -14,21 +14,21 @@ export function Skills() {
             role="tab"
             aria-selected={g.id === active}
             onClick={() => setActive(g.id)}
-            className={`btn ${g.id === active ? "bg-indigo-500 text-white" : "border border-slate-300 dark:border-white/20"}`}
+            className={g.id === active ? "btn border-ink-950 bg-signal text-ink-950" : "btn-ghost"}
           >
             {g.name}
           </button>
         ))}
       </div>
-      <ul role="tabpanel" className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+      <ul role="tabpanel" className="mt-6 grid grid-cols-2 gap-px border border-ink-900/25 bg-ink-900/25 sm:grid-cols-3 md:grid-cols-4 dark:border-bone/25 dark:bg-bone/25">
         {group.skills.map((s) => (
-          <li key={s.name} className="card flex items-center gap-3 p-3">
-            {s.icon ? <img src={s.icon} alt="" className="h-7 w-7" loading="lazy" /> : <span className="h-7 w-7 rounded-md bg-indigo-500/15" aria-hidden />}
+          <li key={s.name} className="flex items-center gap-3 bg-bone p-4 dark:bg-ink-900">
+            {s.icon ? <img src={s.icon} alt="" className="h-7 w-7" loading="lazy" /> : <span className="hair h-7 w-7" aria-hidden />}
             <div className="min-w-0">
-              <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{s.name}</p>
-              <p className="flex gap-1" aria-label={`Level ${s.level} of 3`}>
+              <p className="ink truncate text-sm font-semibold">{s.name}</p>
+              <p className="mt-1 flex gap-0.5" aria-label={`Level ${s.level} of 3`}>
                 {[1, 2, 3].map((n) => (
-                  <span key={n} className={`h-1.5 w-4 rounded-full ${n <= s.level ? "bg-gradient-to-r from-indigo-500 to-cyan-400" : "bg-slate-200 dark:bg-white/10"}`} />
+                  <span key={n} className={`h-2 w-4 ${n <= s.level ? "bg-signal" : "bg-ink-900/15 dark:bg-bone/15"}`} />
                 ))}
               </p>
             </div>
