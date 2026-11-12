@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# CV is hosted on Google Drive, never commit it
+*.pdf
