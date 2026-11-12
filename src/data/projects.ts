@@ -11,6 +11,15 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "beam",
+    title: "Beam",
+    desc: "Beam your laptop's AI coding agent to your phone: a real terminal, source control, file editor and push notifications over an encrypted tunnel.",
+    tech: ["Next.js", "TypeScript", "WebSocket", "xterm.js", "node-pty", "PWA"],
+    tags: ["ai", "web"],
+    image: "/project/Beam.png",
+    repo: "https://github.com/ardhanurfan/beam",
+  },
+  {
     id: "kiddy",
     title: "Kiddy",
     desc: "Real-time baby and toddler monitoring with AI and IoT.",

@@ -4,17 +4,18 @@ import { Section } from "../components/Section";
 import { projects } from "../data/projects";
 import { filterProjects } from "../lib/filterProjects";
 
+const LABELS: Record<string, string> = { ai: "AI", iot: "IoT" };
 const tags = ["all", ...Array.from(new Set(projects.flatMap((p) => p.tags)))];
 
 export function Projects() {
   const [tag, setTag] = useState("all");
   const shown = useMemo(() => filterProjects(projects, tag), [tag]);
   return (
-    <Section id="projects" eyebrow="Projects" title="Selected work" lead="Products and prototypes across web, mobile and IoT. Filter by type.">
+    <Section id="projects" eyebrow="Projects" title="Selected work" lead="Products and prototypes across AI tooling, web, mobile and IoT. Filter by type.">
       <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects">
         {tags.map((t) => (
-          <button key={t} aria-pressed={t === tag} onClick={() => setTag(t)} className={`rounded-full px-4 py-1.5 text-sm font-medium capitalize transition ${t === tag ? "bg-accent text-accent-ink" : "border divider hover:bg-zinc-100 dark:hover:bg-white/10"}`}>
-            {t}
+          <button key={t} aria-pressed={t === tag} onClick={() => setTag(t)} className={`rounded-full px-4 py-1.5 text-sm font-medium transition ${t === tag ? "bg-accent text-accent-ink" : "border divider hover:bg-zinc-100 dark:hover:bg-white/10"}`}>
+            {LABELS[t] ?? t.charAt(0).toUpperCase() + t.slice(1)}
           </button>
         ))}
       </div>
