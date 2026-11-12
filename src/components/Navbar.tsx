@@ -1,7 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { FiDownload, FiMail, FiMenu, FiMoon, FiSearch, FiSun, FiX } from "react-icons/fi";
-import { profile } from "../data/profile";
+import { FiMenu, FiMoon, FiSearch, FiSun, FiX } from "react-icons/fi";
 import { SECTION_IDS, useExplore } from "../lib/explore";
 import type { Theme } from "../lib/theme";
 
@@ -107,7 +106,7 @@ export function Navbar({ theme, onToggleTheme, onOpenPalette }: Props) {
             transition={{ duration: 0.3, ease: [0.32, 0.72, 0, 1] }}
             className="divider overflow-hidden border-t bg-zinc-50 lg:hidden dark:bg-ink-950"
           >
-            <div className="container max-h-[calc(100dvh-4rem)] overflow-y-auto py-3">
+            <div className="container max-h-[calc(100dvh-4rem)] overflow-y-auto py-2">
               <ul>
                 {links.map(([id, label]) => (
                   <li key={id}>
@@ -125,19 +124,6 @@ export function Navbar({ theme, onToggleTheme, onOpenPalette }: Props) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-2 grid grid-cols-2 gap-2 pb-2 sm:max-w-md">
-                <a href={profile.cv} target="_blank" rel="noreferrer" className="btn-ghost"><FiDownload /> CV</a>
-                <a
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    goTo("contact");
-                  }}
-                  className="btn-primary"
-                >
-                  <FiMail /> Contact
-                </a>
-              </div>
             </div>
           </motion.div>
         )}
