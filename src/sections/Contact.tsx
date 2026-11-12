@@ -16,8 +16,8 @@ export function Contact() {
     const form = ev.currentTarget;
     const fd = new FormData(form);
     const errs = validateContact({
-      name: String(fd.get("name") ?? ""),
-      email: String(fd.get("email") ?? ""),
+      name: String(fd.get("user_name") ?? ""),
+      email: String(fd.get("user_email") ?? ""),
       message: String(fd.get("message") ?? ""),
     });
     setErrors(errs);
@@ -29,7 +29,10 @@ export function Contact() {
         setStatus("sent");
         form.reset();
       })
-      .catch(() => setStatus("error"));
+      .catch((err) => {
+        console.error("EmailJS error:", err);
+        setStatus("error");
+      });
   };
 
   const field = "divider w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm";
@@ -48,7 +51,7 @@ export function Contact() {
           {(["name", "email"] as const).map((n) => (
             <div key={n}>
               <label htmlFor={n} className="ink mb-1 block text-sm font-medium capitalize">{n}</label>
-              <input id={n} name={n === "name" ? "name" : "email"} type={n === "email" ? "email" : "text"} aria-invalid={!!errors[n]} className={field} />
+              <input id={n} name={n === "name" ? "user_name" : "user_email"} type={n === "email" ? "email" : "text"} aria-invalid={!!errors[n]} className={field} />
               {errors[n] && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors[n]}</p>}
             </div>
           ))}
