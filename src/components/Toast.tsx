@@ -7,13 +7,13 @@ export function Toast({ show, children, onClose }: { show: boolean; children: Re
       {show && (
         <motion.div
           role="status"
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          className="card fixed bottom-24 left-1/2 z-50 flex w-[calc(100%-32px)] max-w-sm -translate-x-1/2 items-center gap-3 p-4 text-sm shadow-[4px_4px_0_0_#ff4d1c]"
+          exit={{ opacity: 0, y: 16 }}
+          className="card fixed bottom-24 left-1/2 z-50 flex w-[calc(100%-32px)] max-w-sm -translate-x-1/2 items-center gap-3 p-4 text-sm shadow-lg"
         >
           <div className="flex-1">{children}</div>
-          <button onClick={onClose} aria-label="Dismiss" className="label hover:text-signal">✕</button>
+          <button onClick={onClose} aria-label="Dismiss" className="muted hover:text-accent">✕</button>
         </motion.div>
       )}
     </AnimatePresence>

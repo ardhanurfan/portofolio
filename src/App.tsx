@@ -30,6 +30,17 @@ function hasWebGL() {
   }
 }
 
+const NAMES: Record<(typeof SECTION_IDS)[number], string> = {
+  hero: "Top",
+  about: "About",
+  quest: "Experience",
+  skills: "Skills",
+  trophies: "Awards",
+  projects: "Projects",
+  education: "Education",
+  contact: "Contact",
+};
+
 const go = (id: string) => () => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
 function Shell() {
@@ -64,7 +75,7 @@ function Shell() {
 
   const commands = useMemo<Command[]>(
     () => [
-      ...SECTION_IDS.map((id) => ({ id, label: `Go to ${id}`, keywords: [id], run: go(id) })),
+      ...SECTION_IDS.map((id) => ({ id, label: `Go to ${NAMES[id]}`, keywords: [id, NAMES[id]], run: go(id) })),
       { id: "theme", label: "Toggle theme", keywords: ["dark", "light"], run: toggle },
       { id: "cv", label: "Download CV", keywords: ["resume", "pdf"], run: () => window.open(profile.cv, "_blank") },
       { id: "email", label: "Email Ardhan", keywords: ["contact", "hire", "interview"], run: () => (window.location.href = `mailto:${profile.email}`) },
@@ -78,7 +89,7 @@ function Shell() {
     <>
       <Navbar theme={theme} onToggleTheme={toggle} onOpenPalette={() => setPalette(true)} />
       {world && (
-        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-40 lg:opacity-100">
+        <div aria-hidden className="pointer-events-none fixed inset-0 z-0 opacity-30 lg:opacity-100">
           <Suspense fallback={null}>
             <World dark={theme === "dark"} collected={collected} onCollect={collect} />
           </Suspense>
@@ -97,8 +108,8 @@ function Shell() {
       <StickyCta />
       <CommandPalette open={palette} onClose={() => setPalette(false)} commands={commands} />
       <Toast show={complete && !rewardSeen} onClose={() => setRewardSeen(true)}>
-        <b>100% explored.</b> Reward unlocked:{" "}
-        <a href="#contact" onClick={() => setRewardSeen(true)} className="font-semibold text-signal underline">let&apos;s talk</a>.
+        <b>You explored everything.</b> Interested?{" "}
+        <a href="#contact" onClick={() => setRewardSeen(true)} className="font-semibold text-accent underline">get in touch</a>.
       </Toast>
       <Toast show={egg} onClose={() => setEgg(false)}>Achievement unlocked: <b>Curious Engineer</b></Toast>
     </>

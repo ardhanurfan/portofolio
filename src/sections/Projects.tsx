@@ -10,28 +10,28 @@ export function Projects() {
   const [tag, setTag] = useState("all");
   const shown = useMemo(() => filterProjects(projects, tag), [tag]);
   return (
-    <Section id="projects" index="05" eyebrow="Side quests" title={<>Things I&apos;ve built, <em>for fun and for pay.</em></>}>
+    <Section id="projects" eyebrow="Projects" title="Selected work" lead="Products and prototypes across web, mobile and IoT. Filter by type.">
       <div className="flex flex-wrap gap-2" role="group" aria-label="Filter projects">
         {tags.map((t) => (
-          <button key={t} aria-pressed={t === tag} onClick={() => setTag(t)} className={`chip capitalize ${t === tag ? "!border-ink-950 bg-signal text-ink-950" : "hover:border-signal"}`}>
+          <button key={t} aria-pressed={t === tag} onClick={() => setTag(t)} className={`rounded-full px-4 py-1.5 text-sm font-medium capitalize transition ${t === tag ? "bg-accent text-accent-ink" : "border divider hover:bg-zinc-100 dark:hover:bg-white/10"}`}>
             {t}
           </button>
         ))}
       </div>
-      {shown.length === 0 && <p className="mt-8 text-sm text-ink-700/70 dark:text-bone/60">No projects with this tag yet.</p>}
-      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {shown.length === 0 && <p className="muted mt-8">No projects with this tag yet.</p>}
+      <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {shown.map((p) => (
-          <article key={p.id} className="card group overflow-hidden transition hover:-translate-x-1 hover:-translate-y-1 hover:shadow-[5px_5px_0_0_#ff4d1c]">
+          <article key={p.id} className="card group overflow-hidden transition hover:-translate-y-0.5 hover:shadow-md">
             <img src={p.image} alt={`${p.title} screenshot`} loading="lazy" className="aspect-video w-full object-cover" />
             <div className="p-5">
-              <h3 className="font-display text-2xl font-normal ink">{p.title}</h3>
-              <p className="mt-1 text-sm">{p.desc}</p>
+              <h3 className="ink text-lg font-semibold">{p.title}</h3>
+              <p className="mt-1 text-sm leading-relaxed">{p.desc}</p>
               <ul className="mt-3 flex flex-wrap gap-1.5">
-                {p.tech.map((t) => <li key={t} className="chip !text-[10px]">{t}</li>)}
+                {p.tech.map((t) => <li key={t} className="chip">{t}</li>)}
               </ul>
-              <div className="label mt-4 flex gap-4">
-                {p.repo && <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 hover:text-signal"><FiGithub /> Code</a>}
-                {p.live && <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 hover:text-signal"><FiExternalLink /> View</a>}
+              <div className="mt-4 flex gap-4 text-sm font-medium">
+                {p.repo && <a href={p.repo} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-accent"><FiGithub /> Code</a>}
+                {p.live && <a href={p.live} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 hover:text-accent"><FiExternalLink /> View</a>}
               </div>
             </div>
           </article>

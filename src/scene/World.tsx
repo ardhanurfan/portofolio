@@ -3,8 +3,8 @@ import { useEffect, useMemo, useRef } from "react";
 import * as THREE from "three";
 
 const GEM_TOTAL = 12;
-const SIGNAL = "#ff4d1c";
-const VOLT = "#c6f432";
+const SIGNAL = "#2563eb";
+const VOLT = "#f59e0b";
 const NODES = 7;
 
 const curve = new THREE.CatmullRomCurve3(
@@ -55,7 +55,7 @@ interface Palette {
   bg: string;
 }
 const palette = (dark: boolean): Palette =>
-  dark ? { line: "#ece7da", fill: "#1f1f1c", bg: "#0d0d0b" } : { line: "#161614", fill: "#e0daca", bg: "#ece7da" };
+  dark ? { line: "#52525b", fill: "#18181b", bg: "#09090b" } : { line: "#a1a1aa", fill: "#e4e4e7", bg: "#fafafa" };
 
 /* ---------- camera ---------- */
 const smooth = (x: number, a: number, b: number) => {
@@ -85,7 +85,7 @@ function CameraRig() {
 }
 
 /* ---------- hero crystal + gems ---------- */
-const CENTER = new THREE.Vector3(0.4, 0.4, -2);
+const CENTER = new THREE.Vector3(0.4, 1.3, -2);
 
 function Crystal({ p }: { p: Palette }) {
   const g = useRef<THREE.Group>(null);

@@ -26,3 +26,6 @@ Single-page portfolio for Ardhan Nur Urfan (Software Engineer I, Mekari). A recr
 
 ## Builder's call
 Visual identity (palette, fonts), exact animations, and which existing projects to feature beyond those in the CV.
+
+## Visual direction (updated)
+Professional, modern, clean: neutral zinc palette, single blue accent, Geist/Geist Mono, soft rounded cards with subtle borders, plain section names (Experience, Skills, Awards, Projects). Explicitly rejected by the owner: gradient/glass/Inter 'AI' look and the editorial serif + vermilion look. 3D world kept, recoloured to match.

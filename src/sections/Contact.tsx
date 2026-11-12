@@ -32,12 +32,12 @@ export function Contact() {
       .catch(() => setStatus("error"));
   };
 
-  const field = "hair w-full bg-transparent px-4 py-3 text-sm";
+  const field = "divider w-full rounded-lg border bg-transparent px-4 py-2.5 text-sm";
   return (
-    <Section id="contact" index="07" eyebrow="Final boss" title={<>Let&apos;s schedule <em>an interview.</em></>}>
+    <Section id="contact" eyebrow="Contact" title={"Let's schedule an interview"} lead="Hiring for backend, platform or full-stack? Send a note and I will reply quickly.">
       <div className="grid gap-8 pb-16 md:grid-cols-2 md:pb-0">
         <div className="space-y-4">
-          <p>Hiring for backend, platform or full-stack? I reply fast. Send a note, or reach me directly:</p>
+          <p className="muted">Or reach me directly:</p>
           <a className="btn-primary" href={`mailto:${profile.email}?subject=Interview%20invitation`}><FiMail /> {profile.email}</a>
           <div className="flex gap-3">
             <a className="btn-ghost" href={profile.links.linkedin} target="_blank" rel="noreferrer"><FiLinkedin /> LinkedIn</a>
@@ -47,15 +47,15 @@ export function Contact() {
         <form onSubmit={onSubmit} noValidate className="card space-y-4 p-6 md:p-8">
           {(["name", "email"] as const).map((n) => (
             <div key={n}>
-              <label htmlFor={n} className="label mb-1 block">{n}</label>
+              <label htmlFor={n} className="ink mb-1 block text-sm font-medium capitalize">{n}</label>
               <input id={n} name={n === "name" ? "name" : "email"} type={n === "email" ? "email" : "text"} aria-invalid={!!errors[n]} className={field} />
-              {errors[n] && <p className="mt-1 font-mono text-xs text-signal">{errors[n]}</p>}
+              {errors[n] && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors[n]}</p>}
             </div>
           ))}
           <div>
-            <label htmlFor="message" className="label mb-1 block">Message</label>
+            <label htmlFor="message" className="ink mb-1 block text-sm font-medium capitalize">Message</label>
             <textarea id="message" name="message" rows={4} aria-invalid={!!errors.message} className={field} />
-            {errors.message && <p className="mt-1 font-mono text-xs text-signal">{errors.message}</p>}
+            {errors.message && <p className="mt-1 text-xs text-red-600 dark:text-red-400">{errors.message}</p>}
           </div>
           <button className="btn-primary w-full" disabled={status === "sending"}>{status === "sending" ? "Sending…" : "Send message"}</button>
           <p role="status" className="text-sm">
@@ -64,7 +64,7 @@ export function Contact() {
           </p>
         </form>
       </div>
-      <footer className="label mt-16 hidden text-center md:block">© {new Date().getFullYear()} {profile.name}</footer>
+      <footer className="muted mt-16 hidden text-center md:block">© {new Date().getFullYear()} {profile.name}</footer>
     </Section>
   );
 }

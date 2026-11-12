@@ -21,18 +21,18 @@ export function StatCounter({ value, prefix = "", suffix = "", label, hint, clas
 
   useEffect(() => {
     if (!inView || reduce) return;
-    const c = animate(0, value, { duration: 1.4, ease: "easeOut", onUpdate: setN });
+    const c = animate(0, value, { duration: 1.2, ease: "easeOut", onUpdate: setN });
     return () => c.stop();
   }, [inView, reduce, value]);
 
   return (
     <div className={className} title={hint}>
-      <span ref={ref} className="ink block font-display text-5xl leading-none md:text-6xl">
+      <span ref={ref} className="ink block text-3xl font-semibold tabular-nums tracking-tight md:text-4xl">
         {prefix}
         {n.toFixed(d)}
-        <span className="text-signal">{suffix}</span>
+        <span className="text-accent">{suffix}</span>
       </span>
-      {label && <p className="label mt-2">{label}</p>}
+      {label && <p className="muted mt-1">{label}</p>}
       {hint && <p className="sr-only">{hint}</p>}
     </div>
   );
