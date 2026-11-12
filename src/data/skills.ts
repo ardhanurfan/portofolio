@@ -1,6 +1,7 @@
 import type { IconType } from "react-icons";
 import { FiAlertTriangle } from "react-icons/fi";
 import {
+  SiAlibabacloud,
   SiAmazonaws,
   SiArangodb,
   SiCplusplus,
@@ -117,6 +118,7 @@ export const skillGroups: SkillGroup[] = [
       { name: "AWS", level: 2, icon: SiAmazonaws },
       { name: "GCP", level: 2, icon: SiGooglecloud },
       { name: "Azure", level: 2, icon: SiMicrosoftazure },
+      { name: "Alibaba Cloud", level: 2, icon: SiAlibabacloud },
       { name: "Docker", level: 3, icon: SiDocker },
       { name: "Kubernetes", level: 2, icon: SiKubernetes },
       { name: "Prometheus", level: 2, icon: SiPrometheus },
