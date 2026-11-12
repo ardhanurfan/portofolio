@@ -9,6 +9,9 @@ Single-page portfolio for Ardhan Nur Urfan (Software Engineer I, Mekari). A recr
 - Modern/elegant: dark + light themes, smooth motion honoring prefers-reduced-motion, mobile-first, accessible.
 - Full features: Projects (filterable by tag, with live/repo links), Education, Contact (EmailJS form + mailto/LinkedIn/GitHub), SEO/OG meta.
 
+## Content notes
+- Mekari 10x SDLC bullet: AI-assisted workflows (ATDD, automated testing, troubleshooting, PRD/RFC reviews, 80% AI-assisted PR rate). Owner addition: engineers build the test automation themselves rather than relying on a dedicated QA. Show this in the Mekari quest card and the 10x hero stat tooltip.
+
 ## Non-goals / anti-goals
 - No playable mini-game. Gamification must never block or slow reading content.
 - Do NOT mention change failure rate (CFR) anywhere (owner request).

@@ -14,6 +14,7 @@
 
 - Never mention change failure rate / CFR anywhere (copy, data, comments).
 - Only metrics present in the CV; headline stats: 25+ microservices @ 99.9% reliability, <60s MTTA (100% SLA), 10x SDLC, GPA 3.85 Summa Cum Laude, 4 placements (2 first place).
+- Mekari 10x SDLC copy must state that engineers build test automation themselves instead of relying on QA (spec: Content notes).
 - Dark + light theme; honor `prefers-reduced-motion`; mobile-first; no horizontal scroll at 360px.
 - No playable mini-game; gamification must not block content.
 - Keep existing EmailJS credentials in `Contact`. localStorage access wrapped in try/catch.
@@ -35,7 +36,7 @@
 
 **Interfaces — Produces:** `profile: {name, role, company, location, email, links, stats: {label,value,suffix?}[]}`; `experience: {id, role, org, period, location, xp: {label,value}[], bullets: string[]}[]`; `skillGroups: {id, name, skills: {name, level:1|2|3, icon?}[]}[]`; `awards: {id, title, event, year, place, blurb, link?}[]`; `projects: {id, title, desc, tech: string[], tags: string[], image, repo?, live?}[]` (existing `public/project/*` images; CV projects first); `useTheme(): {theme:'light'|'dark', toggle()}`.
 
-- [ ] Step 1: Transcribe CV content into the data files (exact figures; no CFR).
+- [ ] Step 1: Transcribe CV content into the data files (exact figures; no CFR). The Mekari 10x bullet includes "engineers build test automation themselves instead of relying on QA".
 - [ ] Step 2: Write `scripts/` check-free test `src/data/data.test.ts` asserting no data string matches `/change failure|CFR/i` and every `projects[].image` exists under `public/`. Run `npx vitest run` → FAIL, then pass after data written.
 - [ ] Step 3: Implement `useTheme` (class `dark` on `<html>`, persisted, defaults to system).
 - [ ] Step 4: Tailwind tokens (accent palette, font), base CSS, reduced-motion rule. `npm run build` passes.
