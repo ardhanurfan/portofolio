@@ -23,7 +23,7 @@ export function Skills() {
       <ul role="tabpanel" className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
         {group.skills.map((s) => (
           <li key={s.name} className="card flex items-center gap-3 p-4">
-            {s.icon ? <img src={s.icon} alt="" className="h-7 w-7" loading="lazy" /> : <span className="h-7 w-7 rounded-md bg-zinc-100 dark:bg-white/10" aria-hidden />}
+            <s.icon aria-hidden className="h-6 w-6 shrink-0 text-zinc-700 dark:text-zinc-200" />
             <div className="min-w-0">
               <p className="ink truncate text-sm font-medium">{s.name}</p>
               <p className="mt-1.5 flex gap-1" aria-label={`Level ${s.level} of 3`}>

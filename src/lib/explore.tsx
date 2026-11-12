@@ -12,20 +12,6 @@ export const SECTION_IDS = [
   "contact",
 ] as const;
 
-const KEY = "explore:v1";
-
-export function loadVisited(storage?: Storage): Set<string> {
-  try {
-    const raw = (storage ?? localStorage).getItem(KEY);
-    if (!raw) return new Set();
-    const arr: unknown = JSON.parse(raw);
-    if (!Array.isArray(arr)) return new Set();
-    return new Set(arr.filter((x): x is string => typeof x === "string" && (SECTION_IDS as readonly string[]).includes(x)));
-  } catch {
-    return new Set();
-  }
-}
-
 export function addVisit(set: Set<string>, id: string): Set<string> {
   if (!(SECTION_IDS as readonly string[]).includes(id) || set.has(id)) return set;
   return new Set(set).add(id);
@@ -42,19 +28,9 @@ interface Ctx {
 const ExploreCtx = createContext<Ctx | null>(null);
 
 export function ExploreProvider({ children }: { children: ReactNode }) {
-  const [visited, setVisited] = useState<Set<string>>(() => loadVisited());
+  const [visited, setVisited] = useState<Set<string>>(() => new Set());
   const visit = useCallback((id: string) => {
-    setVisited((prev) => {
-      const next = addVisit(prev, id);
-      if (next !== prev) {
-        try {
-          localStorage.setItem(KEY, JSON.stringify([...next]));
-        } catch {
-          /* ignore */
-        }
-      }
-      return next;
-    });
+    setVisited((prev) => addVisit(prev, id));
   }, []);
   const value = useMemo(
     () => ({ visited, percent: percentOf(visited), complete: visited.size === SECTION_IDS.length, visit }),
