@@ -35,7 +35,7 @@ export function Hero({ world, gems, gemTotal }: Props) {
           <p className="mt-6 max-w-xl text-lg leading-relaxed">{profile.summary}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className="btn-primary">Schedule an interview</a>
-            <a href={profile.cv} download className="btn-ghost"><FiDownload /> Download CV</a>
+            <a href={profile.cv} target="_blank" rel="noreferrer" className="btn-ghost"><FiDownload /> Download CV</a>
             <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="btn-ghost !px-3"><FiGithub /></a>
             <a href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn" className="btn-ghost !px-3"><FiLinkedin /></a>
           </div>

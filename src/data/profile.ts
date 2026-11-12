@@ -14,7 +14,7 @@ export const profile = {
   email: "ardhanurfan@gmail.com",
   summary:
     "I build and run reliable backend systems and full-stack products, from SaaS microservices to IoT. ITB Summa Cum Laude, four-time competition placer.",
-  cv: "/Ardhan_Nur_Urfan_CV.pdf",
+  cv: "https://drive.google.com/file/d/12KOBWQSUFsD0pXpB5_Ijus8cKn8-0o3T/view?usp=sharing",
   links: {
     github: "https://github.com/ardhanurfan",
     linkedin: "https://www.linkedin.com/in/ardhanurfan/",
