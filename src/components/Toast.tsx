@@ -10,7 +10,7 @@ export function Toast({ show, children, onClose }: { show: boolean; children: Re
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 16 }}
-          className="card fixed bottom-24 left-1/2 z-50 flex w-[calc(100%-32px)] max-w-sm -translate-x-1/2 items-center gap-3 p-4 text-sm shadow-lg"
+          className="card fixed bottom-24 right-4 z-50 flex w-[calc(100%-32px)] max-w-sm items-center gap-3 p-4 text-sm shadow-lg md:right-6"
         >
           <div className="flex-1">{children}</div>
           <button onClick={onClose} aria-label="Dismiss" className="muted hover:text-accent">✕</button>
